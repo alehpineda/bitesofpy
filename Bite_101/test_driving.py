@@ -1,23 +1,19 @@
 # Testing the code
-import unittest
 from driving import allowed_driving
 
-class Testing(unittest.TestCase):
+# Test
+def test_not_allowed_to_drive(capfd):
+    allowed_driving('tim', 17)
+    output = capfd.readouterr()[0].strip()
+    assert output == 'tim is not allowed to drive'
 
-    def test_not_allowed_to_drive(self, capfd):
-        allowed_driving('tim', 17)
-        output = capfd.readouterr()[0].strip()
-        assert output == 'tim is not allowed to drive'
 
+def test_allowed_to_drive(capfd):
+    allowed_driving('bob', 18)
+    output = capfd.readouterr()[0].strip()
+    assert output == 'bob is allowed to drive'
 
-    def test_allowed_to_drive(self, capfd):
-        allowed_driving('bob', 18)
-        output = capfd.readouterr()[0].strip()
-        assert output == 'bob is allowed to drive'
+    allowed_driving('julian', 19)
+    output = capfd.readouterr()[0].strip()
+    assert output == 'julian is allowed to drive'
 
-        allowed_driving('julian', 19)
-        output = capfd.readouterr()[0].strip()
-        assert output == 'julian is allowed to drive'
-
-if __name__ == '__main__':
-    unittest.main()
