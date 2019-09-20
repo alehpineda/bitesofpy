@@ -19,5 +19,5 @@ install: pip3 install --upgrade pip pytest # all three OSes agree about 'pip3'
 # 'python' points to Python 2.7 on macOS but points to Python 3.7 on Linux and Windows
 # 'python3' is a 'command not found' error on Windows but 'py' works on Windows only
 script:
-  - pytest Bite_101/test_driving.py || pytest Bite_101/test_driving.py
-
+  - pytest Bite_101/test_driving.py
+  - pytest Bite_102/test_colors.py
