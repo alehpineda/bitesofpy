@@ -36,10 +36,7 @@ def get_index_different_char(chars):
     if len(non_alpha) < len(alpha):
         return chars.index(non_alpha[0])
     else:
-        if alpha[0] in '1234567890':
-            return chars.index(int(alpha[0]))
-        return chars.index(alpha[0])
-
+        return chars.index(int(alpha[0])) if alpha[0] in '1234567890' else chars.index(alpha[0])
 
 
 # Solution from pybites
