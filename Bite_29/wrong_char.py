@@ -56,3 +56,18 @@ def get_index_different_char_1(chars):
         else:
             no_matches.append(i)
     return matches[0] if len(matches) == 1 else no_matches[0]
+
+# Solution from pybites forum
+
+def get_index_different_char_2(chars):
+    # A list of 0,1's representing whether each char is alphanum or not
+    #   1 if it is alphanum
+    #   0 if not alphanum
+    #   e.g. ['A', 'f', '.', 'Q', 2] = [1, 1, 0, 1, 1]
+    num_alnum = [1 if str(char).isalnum() else 0 for char in chars]
+
+    # If the sum of the array of ints == 1 this implies a single alphanum
+    #   Return the index of the only 1 in the array
+    # If the  sum of the array of ints > 1 this implies a single non alphanum
+    #   Return the index of the only 0 in the array
+    return num_alnum.index(1) if sum(num_alnum) == 1 else num_alnum.index(0)
