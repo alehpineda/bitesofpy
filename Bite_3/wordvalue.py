@@ -58,6 +58,8 @@ def calc_word_value(word):
 
 def max_word_value(words=None):
     """given a list of words return the word with the maximum word value"""
+    if words == None:
+        words = load_words()
     value_list = [calc_word_value(word) for word in words]
     return words[value_list.index(max(value_list))]
 
