@@ -63,7 +63,7 @@ def get_movies_by_director():
     where keys are directors, and values are a list of movies,
     use the defined Movie namedtuple"""
     directors = defaultdict(list)
-    with open(MOVIE_DATA) as f:
+    with open(MOVIE_DATA, encoding='utf8') as f:
         for line in csv.DictReader(f):
             try:
                 director = line['director_name']
