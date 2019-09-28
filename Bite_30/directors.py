@@ -68,7 +68,7 @@ def get_movies_by_director():
     for row in input_file:
         if row['title_year']:
             if int(row['title_year']) > MIN_YEAR:
-                movies[row['director_name']].append(Movie(str(row['movie_title']), 
+                movies[row['director_name']].append(Movie(str(row['movie_title'].replace('\xa0', '')), 
                                                             int(row['title_year']), 
                                                             float(row['imdb_score'])))
 
