@@ -41,9 +41,10 @@ from collections import defaultdict, namedtuple
 import os
 from urllib.request import urlretrieve
 from statistics import mean
+from tempfile import gettempdir
 
 BASE_URL = 'http://projects.bobbelderbos.com/pcc/movies/'
-TMP = '/tmp'
+TMP = gettempdir()
 
 fname = 'movie_metadata.csv'
 remote = os.path.join(BASE_URL, fname)
