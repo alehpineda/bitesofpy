@@ -37,7 +37,18 @@ def print_hanging_indents(poem):
     for paragraph in paragraphs:
         for counter, line in enumerate(paragraph):
             if counter > 0:
-                print(' '*4 + line)
+                print(' '* INDENTS + line)
             else:
                 print(line)
 
+
+# Pybites solution
+
+def print_hanging_indents1(poem):
+    """You can use textwrap's fill but this worked better for us"""
+    for part in poem.split("\n\n"):
+        lines = [line.strip() for line in part.splitlines()
+                 if line.strip()]
+        print(lines[0])
+        for line in lines[1:]:
+            print(' ' * INDENTS + line)
