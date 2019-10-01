@@ -29,6 +29,15 @@ text snippet from Shakespeare. Have fun!
 
 INDENTS = 4
 
+from textwrap import dedent
 
 def print_hanging_indents(poem):
-    pass
+    dedented_text = dedent(poem).lstrip('\n').split('\n\n')
+    paragraphs = [ paragraph.split('\n') for paragraph in dedented_text ]
+    for paragraph in paragraphs:
+        for counter, line in enumerate(paragraph):
+            if counter > 0:
+                print(' '*4 + line)
+            else:
+                print(line)
+
