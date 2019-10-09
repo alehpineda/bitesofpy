@@ -11,9 +11,11 @@ Keep calm and code in Python! :)
 import os
 from collections import Counter
 import urllib.request
+from tempfile import gettempdir
 
 # prep
-tempfile = os.path.join('/tmp', 'feed')
+TMP = gettempdir()
+tempfile = os.path.join(TMP, 'feed')
 urllib.request.urlretrieve('http://bit.ly/2zD8d8b', tempfile)
 
 with open(tempfile) as f:
