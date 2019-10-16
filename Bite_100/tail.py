@@ -7,10 +7,7 @@ def tail(filepath, n):
     with open(filepath) as f:
         lines = f.read().splitlines()
 
-    d = deque(maxlen=n)
-    d.extend(lines)
-
-    return list(d)
+    return list(deque(lines, maxlen=n))
 
 # pybites solution
 def tail1(filepath, n):
