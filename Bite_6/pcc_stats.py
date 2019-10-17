@@ -43,13 +43,11 @@ def gen_files():
        -> use last column to filter out directories (= True)
     """
     with open(tempfile) as f:
-        lines = f.read().splitlines()
-
-    for line in lines:
-        if line.split(',')[1] == 'True':
-            if line.split(',')[0].split('/')[1] in IGNORE:
-                continue
-            yield (line.split(',')[0].split('/'))
+        for line in f.read().splitlines():
+            if line.split(',')[1] == 'True':
+                if line.split(',')[0].split('/')[1] in IGNORE:
+                    continue
+                yield (line.split(',')[0].split('/'))
 
 
 
@@ -63,8 +61,8 @@ def diehard_pybites():
     for challenge, user in gen_files():
         users.update((user,challenge)) 
         popular_challenges.update((challenge,))
-    stats = Stats(users.most_common(1)[0][0], popular_challenges.most_common(1)[0]) 
-    return stats
+
+    return Stats(users.most_common(1)[0][0], popular_challenges.most_common(1)[0])
 
 # code from pybites
 
