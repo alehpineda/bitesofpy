@@ -5,10 +5,7 @@ def round_up_or_down(transactions, up=True):
       If up=True (default) ronud up, else round down.
       Return a new list of rounded values
    """
-   if up:
-      return [ceil(transaction) for transaction in transactions]
-   return [floor(transaction) for transaction in transactions]
-
+   return [ceil(t) if up else floor(t) for t in transactions]
 
 # Pybites solution
 
