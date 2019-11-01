@@ -16,5 +16,5 @@ def get_person_age(name):
    name = str(name).lower()
    # Create ChainMap from lower dict to upper dict
    chain = ChainMap(group3, group2, group1)
-   # Use get to avoid KeyError
+   # Use .get() to avoid KeyError
    return chain.get(name, NOT_FOUND)
