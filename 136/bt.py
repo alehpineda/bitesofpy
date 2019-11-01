@@ -45,37 +45,31 @@ def check_bt(donor, recipient):
         Returns:
         bool: True for compatability, False otherwise.
     """
-    # If input value is not a required type TypeError is raised.
-    if not isinstance(donor, (int, str, Bloodtype)):
-        raise TypeError
-    # If input value is not in defined interval ValueError is raised.
-    # for donor
-    else:
-        if isinstance(donor, Bloodtype):
-            donor = donor.value
-        elif isinstance(donor, str) and donor in blood_type_text.keys():
-            donor = blood_type_text[donor].value
-        elif isinstance(donor, str) and donor not in blood_type_text.keys():
-            raise ValueError            
-        elif isinstance(donor, int) and donor not in range(8):
-            raise ValueError
-    # for recipient
-    if not isinstance(recipient, (int, str, Bloodtype)):
-        raise TypeError
-    else:
-        if isinstance(recipient, Bloodtype):
-            recipient = recipient.value
-        elif isinstance(recipient, str) and recipient in blood_type_text.keys():
-            recipient = blood_type_text[recipient].value
-        elif isinstance(recipient, str) and recipient not in blood_type_text.keys():
-            raise ValueError
-        elif isinstance(recipient, int) and recipient not in range(8):
-            raise ValueError
-
+    donor = _check_input(donor)
+    recipient = _check_input(recipient)
     compatibility = _particular_antigen_comp(donor, recipient)
     return not any(antigen < 0 for antigen in compatibility)
         
+# aux function to check for type
 
+def _check_input(blood_type):
+    if isinstance(blood_type, Bloodtype):
+        return blood_type.value
+    
+    if isinstance(blood_type, str):
+        if blood_type in blood_type_text.keys():
+            return blood_type_text[blood_type].value
+        else:
+            raise ValueError
+    
+    if isinstance(blood_type, int):
+        if blood_type in range(8):
+            return blood_type
+        else:
+            raise ValueError
+    
+    else:
+        raise TypeError
 
 # hint
 def _particular_antigen_comp(donor: int, recipient: int) -> tuple:
@@ -96,5 +90,3 @@ def _particular_antigen_comp(donor: int, recipient: int) -> tuple:
         ((recipient // 2) % 2) - ((donor // 2) % 2),
         (recipient % 2) - (donor % 2),
     )
-
-print(isinstance(1.0, (int, str, Bloodtype)))
