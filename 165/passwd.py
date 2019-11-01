@@ -40,6 +40,18 @@ def get_users_for_shell(passwd_output: str = PASSWD_OUTPUT,
    """Match the passwd_output string for users with grep_shell.
       Return a list of users.
    """
-   return [process.split(':')[0]
+   return (process.split(':')[0]
       for process in passwd_output.split('\n')
-      if process.split(':')[-1].split('/')[-1] == grep_shell]
+      if process.split(':')[-1].split('/')[-1] == grep_shell)
+
+
+# Pybites solution
+def get_users_for_shell1(passwd_output: str = PASSWD_OUTPUT,
+                        grep_shell: str = DEFAULT_SHELL) -> list:
+    """Match the passwd_output string for users with grep_shell.
+       Return a list of users.
+    """
+    for line in passwd_output.splitlines():
+        username, *_, shell_path = line.split(':')
+        if shell_path.split('/')[-1] == grep_shell:
+            yield username
