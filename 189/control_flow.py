@@ -4,16 +4,11 @@ MAX_NAMES = 5
 
 
 def filter_names(names):
-    _names = []
+    count = 0
     for name in names:
-        if name.lower()[0] == IGNORE_CHAR:
-            pass
-        elif any(char.isdigit() for char in name):
-            pass
-        elif name.lower()[0] == QUIT_CHAR:
+        if name.startswith(IGNORE_CHAR) or any(char.isdigit() for char in name):
+            continue
+        elif name.startswith(QUIT_CHAR) or count >= MAX_NAMES:
             break
-        else:
-            _names.append(name)
-            if len(_names) == 5:
-                break
-    return _names
+        count += 1
+        yield name
