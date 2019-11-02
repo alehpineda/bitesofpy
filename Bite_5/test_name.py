@@ -1,4 +1,4 @@
-from names import (NAMES, dedup_and_title_case_names,
+from name import (NAMES, dedup_and_title_case_names,
                    sort_by_surname_desc, shortest_first_name)
 
 
