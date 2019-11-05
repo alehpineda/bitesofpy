@@ -1,7 +1,7 @@
 from string import ascii_uppercase, digits
 import random
 
-from license import validate_license
+from license1 import validate_license
 
 ALPHABET = ascii_uppercase + digits
 
