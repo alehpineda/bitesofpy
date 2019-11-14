@@ -1,16 +1,15 @@
 import logging
 from typing import Callable
-from functools import partial
 
-DEBUG = partial(int, 10)
-INFO = partial(int, 20)
-WARNING = partial(int, 30)
-ERROR = partial(int, 40)
-CRITICAL = partial(int, 50)
+logger = logging.getLogger('pybites_logger')
+DEBUG = logger.debug
+INFO = logger.info
+WARNING = logger.warning
+ERROR = logger.error
+CRITICAL = logger.critical
 
 def log_it(level: Callable, msg: str) -> None:
-    logger = logging.getLogger('pybites_logger')
-    logger.log(level(), msg)
+    level(msg)
 
 
 if __name__ == "__main__":
