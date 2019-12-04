@@ -37,16 +37,18 @@ def sort_books_by_len_of_title(books=books):
     """
     return sorted(books, key=lambda book: len(book.title))
 
+
 # split several authors and get last name of first
 def _first_authors_last_name(book):
      return book.authors.split(',')[0].split()[-1]
+
 
 def sort_books_by_first_authors_last_name(books=books):
     """
     Expected last book in list:
     Automate the Boring Stuff with Python
     """
-    # don't need to use lambda if using auxilirary functions
+    # don't need to use lambda if using auxiliary functions
     return sorted(books, key=_first_authors_last_name)
 
 
@@ -59,9 +61,11 @@ def sort_books_by_number_of_page(books=books):
     # in this case called pages attribute
     return sorted(books, key=attrgetter('pages'))
 
+
 # Returns datetime object from str date
 def _published_date(book):
      return datetime.strptime(book.published, '%Y-%m-%d')
+
 
 def sort_books_by_published_date(books=books):
     """
@@ -70,4 +74,3 @@ def sort_books_by_published_date(books=books):
     """
     # don't need to use lambda if using auxilirary functions
     return sorted(books, key=_published_date)
-    
