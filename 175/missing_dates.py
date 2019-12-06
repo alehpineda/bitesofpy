@@ -9,9 +9,9 @@ def get_missing_dates(dates):
 
       See the Bite description and tests for example outputs.
    """
-   start, *_, end = sorted(dates)
-   complete_dates = pd.date_range(start=start, end=end).date
-   return list(set(dates) ^ set(complete_dates))
+   # .date converts from DatetimeIndex to a list of datetime.date objects
+   all_dates = pd.date_range(start=min(dates), end=max(dates)).date
+   return set(all_dates) - set(dates)
 
 
 # Pybites solution
