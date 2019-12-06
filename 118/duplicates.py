@@ -12,8 +12,8 @@ def get_duplicate_indices(words):
       count, list comprehension, set
    """
    return sorted([words.index(word) 
-                  for word, value in Counter(words).most_common() 
-                  if value > 1])
+                  for word, count in Counter(words).most_common() 
+                  if count > 1])
 
 
 # Pybites solution
