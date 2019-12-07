@@ -1,6 +1,6 @@
 import types
 
-from grouping import group
+from grouping1 import group
 
 
 def test_split_10_ints_by_3():
