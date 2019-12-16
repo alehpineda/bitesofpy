@@ -126,3 +126,4 @@ dmypy.json
 # Submissions
 submissions/
 .vscode/settings.json
+.vscode
