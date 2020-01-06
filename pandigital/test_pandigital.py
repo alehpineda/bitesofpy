@@ -9,12 +9,3 @@ from pandigital import is_pandigital
 ])
 def test_is_pandigital(values, expected):
     assert is_pandigital(values) == expected
-
-
-# Decorator
-@pytest.mark.parametrize("values", [
-    (98140723568910),
-    ("90864523148909"),
-])
-def test_input_not_int(values):
-    assert isinstance(values, int) == True
