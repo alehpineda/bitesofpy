@@ -1,5 +1,5 @@
 from functools import wraps
-from time import time
+from time import perf_counter
 from typing import Deque, List, Set, Generator
 from collections import deque
 
@@ -10,9 +10,9 @@ def timing(f):
        Returns (timing, result) tuple"""
     @wraps(f)
     def wrapper(*args, **kwargs):
-        start = time()
+        start = perf_counter()
         result = f(*args, **kwargs)
-        end = time()
+        end = perf_counter()
         duration = end - start
         print(f'Elapsed time {f.__name__}: {duration}')
         return duration, result
