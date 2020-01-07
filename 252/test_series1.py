@@ -5,7 +5,7 @@ import pytest
 import numpy as np
 import pandas as pd
 
-import series as se
+import series1 as se
 
 
 @pytest.fixture()
