@@ -1,6 +1,6 @@
 import pytest
 
-from workouts import print_workout_days
+from workouts1 import print_workout_days
 
 
 @pytest.mark.parametrize("values, expected", [
