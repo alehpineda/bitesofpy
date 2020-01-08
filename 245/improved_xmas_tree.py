@@ -22,3 +22,7 @@ def generate_improved_xmas_tree(rows=10):
         xmas.append(trunk_row.center(max_leafs))
 
     return '\n'.join(xmas)
+
+
+if __name__ == "__main__":
+    print(generate_improved_xmas_tree())
