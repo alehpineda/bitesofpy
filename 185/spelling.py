@@ -1,8 +1,9 @@
 from difflib import get_close_matches, SequenceMatcher
 import os
 from urllib.request import urlretrieve
+from tempfile import gettempdir
 
-TMP = os.getenv("TMP", "/tmp")
+TMP = gettempdir()
 DICTIONARY = os.path.join(TMP, 'dictionary.txt')
 if not os.path.isfile(DICTIONARY):
     urlretrieve(
