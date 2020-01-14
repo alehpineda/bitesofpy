@@ -2,17 +2,14 @@ THUMBS_UP, THUMBS_DOWN = '👍', '👎'
 
 
 class Thumbs:
-    def __mul__(self, other):
-        if other == 0:
-            raise ValueError()
-        elif 0 < other < 4:
-            return THUMBS_UP * other
-        elif other > 3:
-            return f"{THUMBS_UP} ({other}x)"
-        elif -4 < other < 0:
-            return THUMBS_DOWN * -other
-        elif other < -3:
-            return f"{THUMBS_DOWN} ({-other}x)"
+    def __mul__(self, count):
+        emoji = THUMBS_UP if count > 0 else THUMBS_DOWN
+        count = abs(count)
 
-    def __rmul__(self, other):
-        return self.__mul__(other)
+        if count == 0:
+            raise ValueError('Specify a number')
+
+        return f"{emoji} ({count}x)" if count > 3 else emoji * count
+
+    def __rmul__(self, count):
+        return self.__mul__(count)
