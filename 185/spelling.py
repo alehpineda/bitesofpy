@@ -1,4 +1,4 @@
-from difflib import SequenceMatcher
+from difflib import get_close_matches, SequenceMatcher
 import os
 from urllib.request import urlretrieve
 
@@ -24,3 +24,14 @@ def suggest_word(misspelled_word: str, words: set = None) -> str:
         words = load_words()
 
     # you code
+    return get_close_matches(misspelled_word.lower(), words, n=1)[0]
+
+
+def suggest_word1(misspelled_word: str, words: set = None) -> str:
+    """Return a valid alternative word that best matches
+       the entered misspelled word"""
+    if words is None:
+        words = load_words()
+
+    # you code
+    return max(words, key = lambda word: SequenceMatcher(None, misspelled_word, word).ratio())
