@@ -35,4 +35,5 @@ def suggest_word1(misspelled_word: str, words: set = None) -> str:
         words = load_words()
 
     # you code
-    return max(words, key = lambda word: SequenceMatcher(None, misspelled_word, word).ratio())
+    return max(words, key=lambda word:
+               SequenceMatcher(None, misspelled_word, word).ratio())
