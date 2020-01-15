@@ -1,11 +1,11 @@
-import os
+from tempfile import gettempdir
 from pathlib import Path
 from urllib.request import urlretrieve
 import re
 
 S3 = "https://bites-data.s3.us-east-2.amazonaws.com/{}"
 FILE_NAME = "mutpy.out"
-TMP = os.getenv("TMP", "/tmp")
+TMP = gettempdir()
 PATH = Path(TMP, FILE_NAME)
 
 if not PATH.exists():
@@ -71,18 +71,26 @@ def filter_killed_mutants(mutpy_output: list = None) -> list:
     if mutpy_output is None:
         mutpy_output = _get_data()
 
-    # your code
+    # Create patterns
     pattern_01 = re.compile(r"-\s+\[#\s+\d+\]\s[A-Z]{3}\s+\w+:")
     pattern_02 = re.compile(r"\[\d.\d+\s+s\]\s+(killed|incompetent)")
     pattern_03 = re.compile(r"\[\d.\d+\s+s\]\s+survived")
 
-    mutants = {index: line for index, line in enumerate(mutpy_output)
+    # search for the patterns in the list
+    mutants = ((index, line) for index, line in enumerate(mutpy_output)
                if pattern_01.search(line) or pattern_02.search(line)
-               or pattern_03.search(line)}
+               or pattern_03.search(line))
 
-    for key, value in mutants.items():
-        print(key, value)
+    # create start and ending of the lines
+    mutants = zip(mutants, mutants)
 
+    # Extract the indices(start, ending) of killed and incompetent
+    indices = ((mutant[0][0]+1, mutant[1][0]) for mutant in mutants
+               if 'survived' not in mutant[1][1])
 
-if __name__ == "__main__":
-    filter_killed_mutants()
+    # Expand ranges of the index
+    indices = [x for index1, index2 in indices for x in range(index1, index2)]
+
+    # return filtered lines
+    return (line for index, line in enumerate(mutpy_output)
+            if index not in indices)

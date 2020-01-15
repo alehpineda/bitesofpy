@@ -1,6 +1,6 @@
 import inspect
 
-from summing import sum_numbers
+from summing1 import sum_numbers
 
 
 def test_functionality():
