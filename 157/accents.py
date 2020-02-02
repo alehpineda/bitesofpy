@@ -7,4 +7,4 @@ def filter_accents(text):
     """
     # decomposition return base char + added symbol or ''
     # you could also use unicodedata.normalize
-    return (char for char in text.lower() if unicodedata.decomposition(char))
+    return {char for char in text.lower() if unicodedata.decomposition(char)}
