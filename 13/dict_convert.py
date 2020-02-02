@@ -21,5 +21,6 @@ def dict2nt(dict_):
 def nt2json(nt):
     # Return a new instance of the named tuple replacing specified fields
     # with new values (**kwargs)
+    # Use this to avoid datetime is not serializable in json
     nt = nt._replace(started=str(nt.started))
     return json.dumps(nt._asdict())
