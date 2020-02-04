@@ -13,12 +13,12 @@ NOW = datetime.now()
 
 
 class Promo:
-    # Constructor
-    # Type check Python 3.6 >
+
+    # Constructor, Type check Python 3.6 >
     def __init__(self, name: str, expires: datetime = NOW):
         self.name = name
         self.expires = expires
-    
+
     # Use decorator to change method to property
     # Called Promo.expired instead of Promo.expired()
     @property
