@@ -1,4 +1,4 @@
-name: Python Morsels
+name: Python Bites
 
 on: [push, pull_request]
 
