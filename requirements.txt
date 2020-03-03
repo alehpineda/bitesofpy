@@ -1,0 +1,5 @@
+pipe
+feedparser
+pytz
+requests
+pandas
