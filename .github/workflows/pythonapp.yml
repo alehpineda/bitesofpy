@@ -35,7 +35,7 @@ jobs:
         mkdir -p reports/pylint
         pylint --exit-zero -r y -j 0 --load-plugins=pylint_json2html --output-format=jsonextended *.py **/*.py > reports/pylint/report.json
         pylint-json2html -f jsonextended -o reports/pylint/report.html reports/pylint/report.json
-        pylint -r y -f msvs -j 0 *.py **/*.py
+
     - name: Archive pylint coverage results
       uses: actions/upload-artifact@v1
       with:
@@ -65,7 +65,7 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         mkdir -p reports/flake8
-        flake8 . --count --max-complexity=10 --max-line-length=79 --statistics --format=html --htmldir=reports/flake8
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=79 --statistics --format=html --htmldir=reports/flake8
     - name: Archive flake8 coverage results
       uses: actions/upload-artifact@v1
       with:
