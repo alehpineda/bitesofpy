@@ -50,8 +50,14 @@ from convert_chars import convert_pybites_chars
             "Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt",
             "VESTIBulum maTTIS ullamcorPEr vElIT SEd ullamcorPEr morBI TIncIdunT",
         ),
-        ("Tempus urna et pharetra pharetra", "tEmPuS urna ET PharETra PharETra"),
-        ("Ullamcorper a lacus vestibulum sed", "UllamcorPEr a lacuS vESTIBulum SEd"),
+        (
+            "Tempus urna et pharetra pharetra",
+            "tEmPuS urna ET PharETra PharETra",
+        ),
+        (
+            "Ullamcorper a lacus vestibulum sed",
+            "UllamcorPEr a lacuS vESTIBulum SEd",
+        ),
         ("Cursus risus at ultrices mi", "CurSuS rISuS aT ulTrIcES mI"),
         (
             "Egestas congue quisque egestas diam in arcu",

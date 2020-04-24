@@ -4,7 +4,11 @@ import pytest
 
 from wc import wc
 
-lines = [b"Hello world", b"Keep calm and code in Python", b"Have a nice weekend"]
+lines = [
+    b"Hello world",
+    b"Keep calm and code in Python",
+    b"Have a nice weekend",
+]
 
 
 @pytest.mark.parametrize(

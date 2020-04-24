@@ -51,7 +51,9 @@ def test_get_profile_award():
         "age": 36,
         "awards": {"champ": "helped out team in crisis"},
     }
-    assert get_profile("tim", 36, champ="helped out team in crisis") == expected
+    assert (
+        get_profile("tim", 36, champ="helped out team in crisis") == expected
+    )
 
 
 def test_get_profile_two_sports_and_one_award():
@@ -63,7 +65,11 @@ def test_get_profile_two_sports_and_one_award():
     }
     assert (
         get_profile(
-            "tim", 36, "tennis", "basketball", champ="helped out team in crisis"
+            "tim",
+            36,
+            "tennis",
+            "basketball",
+            champ="helped out team in crisis",
         )
         == expected
     )

@@ -12,7 +12,10 @@ from clean import remove_punctuation
             "String with punctuation characters",
         ),
         ("Watch out!!!", "Watch out"),
-        ("Spaces - should - work the same, yes?", "Spaces  should  work the same yes"),
+        (
+            "Spaces - should - work the same, yes?",
+            "Spaces  should  work the same yes",
+        ),
         (
             "Some other (chars) |:-^, let's delete them",
             "Some other chars  lets delete them",

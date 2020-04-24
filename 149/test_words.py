@@ -106,7 +106,8 @@ def test_digit_inside_word_does_not_matter():
 
 def test_words_with_mixed_chars_and_digits():
     words = (
-        "Let's see how4 this 1sorts, hope it works 4 this " "B1te 22 55abc abc55"
+        "Let's see how4 this 1sorts, hope it works 4 this "
+        "B1te 22 55abc abc55"
     ).split()
     actual = sort_words_case_insensitively(words)
     expected = [

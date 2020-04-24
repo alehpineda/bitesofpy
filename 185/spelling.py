@@ -7,7 +7,8 @@ TMP = gettempdir()
 DICTIONARY = os.path.join(TMP, "dictionary.txt")
 if not os.path.isfile(DICTIONARY):
     urlretrieve(
-        "https://bites-data.s3.us-east-2.amazonaws.com/dictionary.txt", DICTIONARY
+        "https://bites-data.s3.us-east-2.amazonaws.com/dictionary.txt",
+        DICTIONARY,
     )
 
 
@@ -35,5 +36,6 @@ def suggest_word1(misspelled_word: str, words: set = None) -> str:
 
     # you code
     return max(
-        words, key=lambda word: SequenceMatcher(None, misspelled_word, word).ratio()
+        words,
+        key=lambda word: SequenceMatcher(None, misspelled_word, word).ratio(),
     )

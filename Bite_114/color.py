@@ -39,7 +39,8 @@ class Color:
             hex = hex.lstrip("#")
             hlen = len(hex)
             return tuple(
-                int(hex[i : i + hlen // 3], 16) for i in range(0, hlen, hlen // 3)
+                int(hex[i : i + hlen // 3], 16)
+                for i in range(0, hlen, hlen // 3)
             )
         except ValueError:
             raise ValueError(error_message)

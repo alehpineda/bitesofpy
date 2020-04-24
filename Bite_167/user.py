@@ -28,7 +28,10 @@ class User:
         # TODO 2: you code
         FIRST_CHAR = 0
         SEVEN_CHAR = 7
-        return self.first_name.lower()[FIRST_CHAR] + self.last_name.lower()[:SEVEN_CHAR]
+        return (
+            self.first_name.lower()[FIRST_CHAR]
+            + self.last_name.lower()[:SEVEN_CHAR]
+        )
 
     # TODO 3: you code
     #
@@ -45,4 +48,7 @@ class User:
         """Don't hardcode the class name, hint: use a
            special attribute of self.__class__ ...
         """
-        return f"{self.__class__.__name__}" f'("{self.first_name}", "{self.last_name}")'
+        return (
+            f"{self.__class__.__name__}"
+            f'("{self.first_name}", "{self.last_name}")'
+        )

@@ -19,7 +19,9 @@ def changed_dependencies(old_reqs: str, new_reqs: str) -> list:
         new[key] = value
 
     return [
-        key for key in old.keys() if parse_version(old[key]) < parse_version(new[key])
+        key
+        for key in old.keys()
+        if parse_version(old[key]) < parse_version(new[key])
     ]
 
 

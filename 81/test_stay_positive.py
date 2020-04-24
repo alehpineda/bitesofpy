@@ -1,4 +1,8 @@
-from stay_positive import tweets, filter_tweets_on_polarity, order_tweets_by_polarity
+from stay_positive import (
+    tweets,
+    filter_tweets_on_polarity,
+    order_tweets_by_polarity,
+)
 
 
 def test_filter_tweets_keep_positive():

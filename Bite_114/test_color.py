@@ -35,7 +35,9 @@ def test_color_classmethod_rgb2hex(rgb, expected):
     assert Color.rgb2hex(rgb) == expected
 
 
-@pytest.mark.parametrize("rgb", [("puke"), ("0, 0, 0"), ((0, -5, 255)), ((256, 0, 0)),])
+@pytest.mark.parametrize(
+    "rgb", [("puke"), ("0, 0, 0"), ((0, -5, 255)), ((256, 0, 0)),]
+)
 def test_color_rgb2hex_bad_value(rgb):
     with pytest.raises(ValueError):
         Color.rgb2hex(rgb)

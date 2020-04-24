@@ -23,7 +23,8 @@ tweets = [
     ),
     Tweet(
         text=(
-            "Excellent set of tips for managing a PostgreSQL cluster " "in production."
+            "Excellent set of tips for managing a PostgreSQL cluster "
+            "in production."
         ),
         polarity=1.0,
     ),
@@ -47,7 +48,9 @@ tweets = [
 def filter_tweets_on_polarity(tweets, keep_positive=True):
     """Filter the tweets by polarity score, receives keep_positive bool which
        determines what to keep. Returns a list of filtered tweets."""
-    return [tweet for tweet in tweets if _condition(tweet.polarity, keep_positive)]
+    return [
+        tweet for tweet in tweets if _condition(tweet.polarity, keep_positive)
+    ]
 
 
 def _condition(polarity, keep_positive):

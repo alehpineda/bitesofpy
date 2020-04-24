@@ -38,7 +38,12 @@ def get_all_matching_models(cars=cars, grep="trail"):
        'grep' string which defaults to 'trail' for this exercise,
        sort the resulting sequence alphabetically"""
     return sorted(
-        [e for _, val in cars.items() for e in val if grep.lower() in e.lower()]
+        [
+            e
+            for _, val in cars.items()
+            for e in val
+            if grep.lower() in e.lower()
+        ]
     )
 
 

@@ -14,7 +14,9 @@ with requests.Session() as s:
 def most_prolific_automaker(year):
     """Given year 'year' return the automaker that released
        the highest number of new car models"""
-    count = Counter([car.get("automaker") for car in data if car.get("year") == year])
+    count = Counter(
+        [car.get("automaker") for car in data if car.get("year") == year]
+    )
     return count.most_common(1)[0][0]
 
 
@@ -32,7 +34,9 @@ def get_models(automaker, year):
 def most_prolific_automaker1(year):
     """Given year 'year' return the automaker that released
        the highest number of new car models"""
-    cnt = Counter(row["automaker"] for row in data if row["year"] == year).most_common()
+    cnt = Counter(
+        row["automaker"] for row in data if row["year"] == year
+    ).most_common()
     return cnt[0][0]
 
 

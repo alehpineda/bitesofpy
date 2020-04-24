@@ -14,7 +14,9 @@ def group(iterable, n):
         list: The list of groups of size n,
               where each group is a list of n elements.
   """
-    return [list(filter(None, tup)) for tup in zip_longest(*[iter(iterable)] * n)]
+    return [
+        list(filter(None, tup)) for tup in zip_longest(*[iter(iterable)] * n)
+    ]
 
 
 # Pybites solution

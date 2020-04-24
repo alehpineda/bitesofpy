@@ -70,6 +70,8 @@ def test_get_users_for_false_shell():
 
 
 def test_get_users_for_different_passwd_output_and_ksh_shell():
-    actual = get_users_for_shell(passwd_output=OTHER_PASSWD_OUTPUT, grep_shell="ksh")
+    actual = get_users_for_shell(
+        passwd_output=OTHER_PASSWD_OUTPUT, grep_shell="ksh"
+    )
     expected = ["invscout", "jdoe", "paul", "root"]
     assert sorted(actual) == expected

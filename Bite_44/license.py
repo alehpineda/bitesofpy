@@ -35,5 +35,6 @@ DASH = "-"
 
 def gen_key1(parts=4, chars_per_part=8):
     return DASH.join(
-        "".join(choice(ALPHABET) for i in range(chars_per_part)) for _ in range(parts)
+        "".join(choice(ALPHABET) for i in range(chars_per_part))
+        for _ in range(parts)
     )

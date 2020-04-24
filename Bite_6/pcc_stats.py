@@ -62,7 +62,9 @@ def diehard_pybites():
         users.update((user, challenge))
         popular_challenges.update((challenge,))
 
-    return Stats(users.most_common(1)[0][0], popular_challenges.most_common(1)[0])
+    return Stats(
+        users.most_common(1)[0][0], popular_challenges.most_common(1)[0]
+    )
 
 
 # code from pybites

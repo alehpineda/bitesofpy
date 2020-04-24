@@ -80,7 +80,9 @@ def filter_killed_mutants(mutpy_output: list = None) -> list:
     mutants = (
         (index, line)
         for index, line in enumerate(mutpy_output)
-        if pattern_01.search(line) or pattern_02.search(line) or pattern_03.search(line)
+        if pattern_01.search(line)
+        or pattern_02.search(line)
+        or pattern_03.search(line)
     )
 
     # create start and ending of the lines
@@ -97,4 +99,6 @@ def filter_killed_mutants(mutpy_output: list = None) -> list:
     indices = [x for index1, index2 in indices for x in range(index1, index2)]
 
     # return filtered lines
-    return (line for index, line in enumerate(mutpy_output) if index not in indices)
+    return (
+        line for index, line in enumerate(mutpy_output) if index not in indices
+    )

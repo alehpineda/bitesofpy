@@ -17,7 +17,9 @@ def test_calculate_score(arg, expected):
     assert calculate_score(arg) == expected
 
 
-@pytest.mark.parametrize("arg", [[4, 5, 6, "a"], [4, -5, -1, 2], [4, 7, 6, 2],])
+@pytest.mark.parametrize(
+    "arg", [[4, 5, 6, "a"], [4, -5, -1, 2], [4, 7, 6, 2],]
+)
 def test_wrong_inputs(arg):
     with pytest.raises(ValueError):
         calculate_score(arg)

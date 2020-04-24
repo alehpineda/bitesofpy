@@ -7,7 +7,9 @@ ALPHABET = ascii_uppercase + digits
 
 
 def _create_license():
-    return "PB-" + "-".join(["".join(random.sample(ALPHABET, 8)) for _ in range(4)])
+    return "PB-" + "-".join(
+        ["".join(random.sample(ALPHABET, 8)) for _ in range(4)]
+    )
 
 
 def test_valid_license():

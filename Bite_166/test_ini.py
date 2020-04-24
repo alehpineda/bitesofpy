@@ -313,7 +313,12 @@ ini_files = (cookiecutter, django, oeuvre, pyramid)
 @pytest.mark.parametrize(
     "ini_file, num_sections, envs, base_pys",
     [
-        (cookiecutter, 4, ["flake8", "py34", "py35", "py36", "pypy", "py27"], []),
+        (
+            cookiecutter,
+            4,
+            ["flake8", "py34", "py35", "py36", "pypy", "py27"],
+            [],
+        ),
         (django, 7, ["docs", "flake8", "isort", "py3"], ["python3"]),
         (
             pyramid,
@@ -334,7 +339,16 @@ ini_files = (cookiecutter, django, oeuvre, pyramid)
         (
             oeuvre,
             14,
-            ["docs", "flake8", "linters", "py27", "py33", "py34", "py35", "py36"],
+            [
+                "docs",
+                "flake8",
+                "linters",
+                "py27",
+                "py33",
+                "py34",
+                "py35",
+                "py36",
+            ],
             ["python3"],
         ),
     ],

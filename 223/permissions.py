@@ -31,7 +31,9 @@ def get_octal_from_file_permission(rwx: str) -> str:
    """
 
     user, group, other = _get_chunks(rwx)
-    return f"{_convert_octal(user)}{_convert_octal(group)}{_convert_octal(other)}"
+    return (
+        f"{_convert_octal(user)}{_convert_octal(group)}{_convert_octal(other)}"
+    )
 
 
 # Pybites solution

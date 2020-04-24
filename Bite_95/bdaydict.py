@@ -29,7 +29,8 @@ class BirthdayDict1(dict):
 
     def __setitem__(self, name, birthday):
         has_birthday = any(
-            birthday.strftime("%d/%m") == dt.strftime("%d/%m") for dt in self.values()
+            birthday.strftime("%d/%m") == dt.strftime("%d/%m")
+            for dt in self.values()
         )
 
         if has_birthday:

@@ -13,7 +13,11 @@ def get_duplicate_indices(words):
       count, list comprehension, set
    """
     return sorted(
-        [words.index(word) for word, count in Counter(words).most_common() if count > 1]
+        [
+            words.index(word)
+            for word, count in Counter(words).most_common()
+            if count > 1
+        ]
     )
 
 

@@ -20,7 +20,9 @@ def get_slice(ser: pd.Series, start: int, end: int) -> pd.core.series.Series:
     return ser[start:end]
 
 
-def get_slice_inclusive(ser: pd.Series, start: int, end: int) -> pd.core.series.Series:
+def get_slice_inclusive(
+    ser: pd.Series, start: int, end: int
+) -> pd.core.series.Series:
     """Return the slice of the given Series in the range between
     start and end inclusive.
     """
@@ -51,7 +53,9 @@ def get_values(ser: pd.Series) -> np.ndarray:
     return ser.values
 
 
-def get_every_second_indexes(ser: pd.Series, even_index=True) -> pd.core.series.Series:
+def get_every_second_indexes(
+    ser: pd.Series, even_index=True
+) -> pd.core.series.Series:
     """Return all rows where the index is either even or odd.
     If even_index is True return every index where idx % 2 == 0
     If even_index is False return every index where idx % 2 != 0

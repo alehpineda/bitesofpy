@@ -26,5 +26,7 @@ def test_get_files(byte_sizes, size_in_kb, expected):
             with open(os.path.join(dirname, str(size)), "wb") as f:
                 f.write(os.urandom(size))
 
-        actual = [os.path.basename(fi) for fi in get_files(dirname, size_in_kb)]
+        actual = [
+            os.path.basename(fi) for fi in get_files(dirname, size_in_kb)
+        ]
         assert sorted(actual) == sorted(expected)
