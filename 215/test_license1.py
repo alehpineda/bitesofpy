@@ -7,10 +7,7 @@ ALPHABET = ascii_uppercase + digits
 
 
 def _create_license():
-    return 'PB-' + '-'.join(
-        [''.join(random.sample(ALPHABET, 8))
-         for _ in range(4)]
-    )
+    return "PB-" + "-".join(["".join(random.sample(ALPHABET, 8)) for _ in range(4)])
 
 
 def test_valid_license():
@@ -31,11 +28,11 @@ def test_invalid_license():
     assert not validate_license(lcase_key)
     shorter_key = pool[1][:-2]
     assert not validate_license(shorter_key)
-    longer_key = pool[2] + 'A'
+    longer_key = pool[2] + "A"
     assert not validate_license(longer_key)
-    wrong_prefix = 'AB-' + pool[3][3:]
+    wrong_prefix = "AB-" + pool[3][3:]
     assert not validate_license(wrong_prefix)
-    empty_key = ''
+    empty_key = ""
     assert not validate_license(empty_key)
     key_reversed = pool[4][::-1]
     assert not validate_license(key_reversed)
@@ -44,5 +41,5 @@ def test_invalid_license():
 def test_valid_prefix():
     license = "PB-U8N435EH-PG65PW87-IXPWQG5T-898XSZI4"
     assert validate_license(license)
-    assert not validate_license(license.replace('PB', 'APB'))
-    assert not validate_license(license.replace('PB', 'COAPB'))
+    assert not validate_license(license.replace("PB", "APB"))
+    assert not validate_license(license.replace("PB", "COAPB"))

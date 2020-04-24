@@ -22,20 +22,20 @@ data = """Luke Skywalker,172,77
 
 from operator import itemgetter
 
+
 def person_max_bmi(data=data):
-   """Return (name, BMI float) of the character in data that
+    """Return (name, BMI float) of the character in data that
       has the highest BMI (rounded on 2 decimals)"""
-   char_bmi = {}
-   for line in data.splitlines():
-      person, height, mass = line.split(',')
-      char_bmi[person.strip()] = calc_bmi(mass, height)
-   return max(char_bmi.items(), key=itemgetter(1))
+    char_bmi = {}
+    for line in data.splitlines():
+        person, height, mass = line.split(",")
+        char_bmi[person.strip()] = calc_bmi(mass, height)
+    return max(char_bmi.items(), key=itemgetter(1))
 
 
 def calc_bmi(weight, length):
-   """Provided/DONE:
+    """Provided/DONE:
       Calc BMI give a weight in kg and length in cm, return the BMI
       rounded on 2 decimals"""
-   bmi = float(weight) / ((float(length) / 100) ** 2)
-   return round(bmi, 2)
-
+    bmi = float(weight) / ((float(length) / 100) ** 2)
+    return round(bmi, 2)

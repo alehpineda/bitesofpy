@@ -31,24 +31,25 @@ INDENTS = 4
 
 from textwrap import dedent
 
+
 def print_hanging_indents(poem):
-    dedented_text = dedent(poem).lstrip('\n').split('\n\n')
-    paragraphs = [ paragraph.split('\n') for paragraph in dedented_text ]
+    dedented_text = dedent(poem).lstrip("\n").split("\n\n")
+    paragraphs = [paragraph.split("\n") for paragraph in dedented_text]
     for paragraph in paragraphs:
         for counter, line in enumerate(paragraph):
             if counter > 0:
-                print(' '* INDENTS + line)
+                print(" " * INDENTS + line)
             else:
                 print(line)
 
 
 # Pybites solution
 
+
 def print_hanging_indents1(poem):
     """You can use textwrap's fill but this worked better for us"""
     for part in poem.split("\n\n"):
-        lines = [line.strip() for line in part.splitlines()
-                 if line.strip()]
+        lines = [line.strip() for line in part.splitlines() if line.strip()]
         print(lines[0])
         for line in lines[1:]:
-            print(' ' * INDENTS + line)
+            print(" " * INDENTS + line)

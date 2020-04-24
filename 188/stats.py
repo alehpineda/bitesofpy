@@ -5,9 +5,9 @@ from tempfile import gettempdir
 from statistics import mean, pstdev, pvariance, stdev, variance
 
 TMP = gettempdir()
-STATS = path.join(TMP, 'testfiles_number_loc.txt')
+STATS = path.join(TMP, "testfiles_number_loc.txt")
 if not path.isfile(STATS):
-    urlretrieve('https://bit.ly/2Jp5CUt', STATS)
+    urlretrieve("https://bit.ly/2Jp5CUt", STATS)
 
 STATS_OUTPUT = """
 Basic statistics:
@@ -38,6 +38,7 @@ def get_all_line_counts(data: str = STATS) -> list:
 
 # Pybites solution
 
+
 def get_all_line_counts1(data: str = STATS) -> list:
     """Get all 186 line counts from the STATS file,
        returning a list of ints"""
@@ -56,16 +57,16 @@ def create_stats_report(data=None):
 
     # TODO 2: complete this dict, use data list and
     # for the last 3 sample_ variables, use sample list
-    stats = dict(count=len(data),
-                 min_=min(data),
-                 max_=max(data),
-                 mean=mean(data),
-                 pstdev=pstdev(data),
-                 pvariance=pvariance(data),
-                 sample_count=len(sample),
-                 sample_stdev=stdev(sample),
-                 sample_variance=variance(sample),
-                 )
+    stats = dict(
+        count=len(data),
+        min_=min(data),
+        max_=max(data),
+        mean=mean(data),
+        pstdev=pstdev(data),
+        pvariance=pvariance(data),
+        sample_count=len(sample),
+        sample_stdev=stdev(sample),
+        sample_variance=variance(sample),
+    )
 
     return STATS_OUTPUT.format(**stats)
-

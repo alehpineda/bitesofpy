@@ -32,6 +32,5 @@ def get_matching_files(directory: PosixPath, filter_str: str) -> list:
 def get_matching_files1(directory: PosixPath, filter_str: str) -> list:
 
     files = [file_.name for file_ in directory.iterdir()]
-    matches = [file_ for file_ in files
-               if filter_str.lower() == file_.lower()]
+    matches = [file_ for file_ in files if filter_str.lower() == file_.lower()]
     return matches if matches else get_close_matches(filter_str, files)

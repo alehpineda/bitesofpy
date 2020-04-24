@@ -7,11 +7,11 @@ def calculate_gc_content(sequence):
     Receives a DNA sequence (A, G, C, or T)
     Returns the percentage of GC content (rounded to the last two digits)
     """
-    GC = ['g', 'c']
-    c = Counter(re.findall(r'(a|g|c|t)', sequence.lower()))
+    GC = ["g", "c"]
+    c = Counter(re.findall(r"(a|g|c|t)", sequence.lower()))
     gc_content = sum(value for key, value in c.most_common() if key in GC)
     total_content = sum(c.values())
-    return round(gc_content*100/total_content, 2)
+    return round(gc_content * 100 / total_content, 2)
 
 
 # PyBites solution

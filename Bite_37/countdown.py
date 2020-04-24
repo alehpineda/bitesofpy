@@ -18,17 +18,18 @@ time is up
 You will be tested on having the same output, making it work with another start value, and of course if you used recursion. Have fun!
 """
 
+
 def countdown_for(start=10):
     for i in reversed(range(1, start + 1)):
         print(i)
-    print('time is up')
+    print("time is up")
 
 
 def countdown_recursive(start=10):
     if start < 1:
-        print('time is up')
+        print("time is up")
         return
-    
+
     print(start)
-    
-    return countdown_recursive(start-1)
+
+    return countdown_recursive(start - 1)

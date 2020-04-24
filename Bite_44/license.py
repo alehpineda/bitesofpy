@@ -17,10 +17,11 @@ import secrets
 import re
 import textwrap
 
-def gen_key(parts = 4, chars_per_part = 8):
+
+def gen_key(parts=4, chars_per_part=8):
     size = parts * chars_per_part
-    key = re.findall(r'[A-Z0-9]' ,secrets.token_urlsafe(size).upper())
-    return '-'.join(textwrap.wrap(''.join(key)[:size], chars_per_part))
+    key = re.findall(r"[A-Z0-9]", secrets.token_urlsafe(size).upper())
+    return "-".join(textwrap.wrap("".join(key)[:size], chars_per_part))
 
 
 # Pybites solution
@@ -29,9 +30,10 @@ from secrets import choice
 from string import ascii_uppercase, digits
 
 ALPHABET = ascii_uppercase + digits
-DASH = '-'
+DASH = "-"
 
 
 def gen_key1(parts=4, chars_per_part=8):
-    return DASH.join(''.join(choice(ALPHABET) for i in range(chars_per_part))
-                     for _ in range(parts))
+    return DASH.join(
+        "".join(choice(ALPHABET) for i in range(chars_per_part)) for _ in range(parts)
+    )

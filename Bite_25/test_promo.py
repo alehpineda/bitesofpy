@@ -2,8 +2,7 @@ from unittest.mock import patch
 
 import pytest
 
-from promo import (Promo, NoBitesAvailable,
-                   BITES, bites_done)
+from promo import Promo, NoBitesAvailable, BITES, bites_done
 
 BITES_AVAILABLE = len(BITES) - len(bites_done)
 
@@ -25,7 +24,7 @@ def test_bites_not_done_start(promo):
     assert len(promo.bites_done) == 5
 
 
-@patch('random.choice', side_effect=[7, 9, 11])
+@patch("random.choice", side_effect=[7, 9, 11])
 def test_new_bite(choice_mock, promo):
     assert promo.new_bite() == 7
     assert promo.new_bite() == 9

@@ -13,6 +13,6 @@ def rgb_to_hex1(rgb):
        boundaries (0, 255) and returns its converted hex, for example:
        Silver: input tuple = (192,192,192) -> output hex str = #C0C0C0"""
     if not all(0 <= val <= 255 for val in rgb):
-        raise ValueError(f'rgb {rgb} not in range(256)')
+        raise ValueError(f"rgb {rgb} not in range(256)")
 
-    return '#' + ''.join([f'{val:02x}' for val in rgb]).upper()
+    return "#" + "".join([f"{val:02x}" for val in rgb]).upper()

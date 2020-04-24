@@ -22,7 +22,7 @@ def get_hundred_weekdays1(start_date=TODAY):
     """Return a list of hundred date objects starting from
        start_date up till 100 weekdays later, so +100 days
        skipping Saturdays and Sundays"""
-    date_range = rrule(DAILY, count=100,
-                       byweekday=(MO, TU, WE, TH, FR),
-                       dtstart=start_date)
+    date_range = rrule(
+        DAILY, count=100, byweekday=(MO, TU, WE, TH, FR), dtstart=start_date
+    )
     return [dt.date() for dt in date_range]

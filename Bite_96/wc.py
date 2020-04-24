@@ -11,11 +11,12 @@ def wc(file_):
             wordlist = line.split()
             words += len(wordlist)
             chars += len(line)
-    
+
     return f"{lines}\t{words}\t{chars}\t{file_}"
 
 
 # pybites solution
+
 
 def wc1(file_):
     """Takes an absolute file path/name, calculates the number of
@@ -24,8 +25,8 @@ def wc1(file_):
        (both tabs and spaces are allowed as separator)"""
     with open(file_) as f:
         content = f.read()
-        num_lines = len(content.split('\n'))
+        num_lines = len(content.split("\n"))
         num_words = len(content.split())
         num_chars = len(content)
-        numbers = f'{num_lines}\t{num_words}\t{num_chars}'
-        return f'{numbers} {file_}'
+        numbers = f"{num_lines}\t{num_words}\t{num_chars}"
+        return f"{numbers} {file_}"

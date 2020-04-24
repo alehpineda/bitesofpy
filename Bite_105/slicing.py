@@ -36,16 +36,16 @@ def slice_and_dice(text: str = text) -> list:
     results = []
     # strip the whitespaces front and back
     # split by new line
-    text = text.strip().split('\n')
+    text = text.strip().split("\n")
     # for each line
     for line in text:
         # if the first character is lowercase
         if line.strip()[0] in ascii_lowercase:
             # split the line into words
             # get the last word
-            # strip the dot (.) and exclamation 
+            # strip the dot (.) and exclamation
             # mark (!) from last word
             # save it in the results list
-            results.append(line.strip().split()[-1].strip('.').strip('!'))
+            results.append(line.strip().split()[-1].strip(".").strip("!"))
     # return the results
     return results

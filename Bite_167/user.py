@@ -14,8 +14,7 @@ class User:
            and using title case for both.
         """
         # TODO 1: you code
-        return (self.first_name.capitalize()+' '
-                +self.last_name.capitalize())
+        return self.first_name.capitalize() + " " + self.last_name.capitalize()
 
     @property
     def username(self):
@@ -29,8 +28,7 @@ class User:
         # TODO 2: you code
         FIRST_CHAR = 0
         SEVEN_CHAR = 7
-        return (self.first_name.lower()[FIRST_CHAR]+
-            self.last_name.lower()[:SEVEN_CHAR])
+        return self.first_name.lower()[FIRST_CHAR] + self.last_name.lower()[:SEVEN_CHAR]
 
     # TODO 3: you code
     #
@@ -41,11 +39,10 @@ class User:
     # see also TESTS for required output
 
     def __str__(self):
-        return f'{self.get_full_name} ({self.username})'
+        return f"{self.get_full_name} ({self.username})"
 
     def __repr__(self):
         """Don't hardcode the class name, hint: use a
            special attribute of self.__class__ ...
         """
-        return (f'{self.__class__.__name__}'
-                f'("{self.first_name}", "{self.last_name}")')
+        return f"{self.__class__.__name__}" f'("{self.first_name}", "{self.last_name}")'

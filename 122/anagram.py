@@ -10,7 +10,7 @@ def is_anagram(word1, word2):
 
 
 def _clean_word(word):
-    return word.strip().replace(' ', '').lower()
+    return word.strip().replace(" ", "").lower()
 
 
 def is_anagram1(word1, word2):

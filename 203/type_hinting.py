@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 
+
 @dataclass
 class Employee:
     """Simple Employee class
@@ -17,7 +18,6 @@ class Employee:
     days_per_week: int
     hours_per_day: float
     wage: float
-
 
     def _rounder(self, number: float, places: int) -> str:
         """Rounds a number the specified number of places

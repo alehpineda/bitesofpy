@@ -3,6 +3,7 @@ def extract_non_ascii_words(text):
     words = text.split()
     return [word for word in words if _is_ascii(word)]
 
+
 # Pybites solution
 def _is_ascii(word):
     """Helper to determine if a word consists of only ascii chars

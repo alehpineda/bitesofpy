@@ -11,4 +11,5 @@ def int_args(func):
             raise ValueError
         else:
             return func(*args)
+
     return wrapper

@@ -21,18 +21,19 @@ import os
 import urllib.request
 from tempfile import gettempdir
 
-SHUTDOWN_EVENT = 'Shutdown initiated'
+SHUTDOWN_EVENT = "Shutdown initiated"
 
 # prep: read in the logfile
 TMP = gettempdir()
-logfile = os.path.join(TMP, 'log')
-urllib.request.urlretrieve('http://bit.ly/2AKSIbf', logfile)
+logfile = os.path.join(TMP, "log")
+urllib.request.urlretrieve("http://bit.ly/2AKSIbf", logfile)
 
 with open(logfile) as f:
     loglines = f.readlines()
 
 
 # for you to code:
+
 
 def convert_to_datetime(line):
     """TODO 1:
@@ -43,7 +44,7 @@ def convert_to_datetime(line):
        datetime(2014, 7, 3, 23, 27, 51)
     """
     timestamp = line.split()[1]
-    date_str = '%Y-%m-%dT%H:%M:%S'
+    date_str = "%Y-%m-%dT%H:%M:%S"
     return datetime.strptime(timestamp, date_str)
 
 
@@ -53,7 +54,8 @@ def time_between_shutdowns(loglines):
        calculate the timedelta between the first and last one.
        Return this datetime.timedelta object.
     """
-    shutdown = [convert_to_datetime(line) for line in loglines 
-                if SHUTDOWN_EVENT in line]
-    
+    shutdown = [
+        convert_to_datetime(line) for line in loglines if SHUTDOWN_EVENT in line
+    ]
+
     return shutdown[-1] - shutdown[0]

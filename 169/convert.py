@@ -7,13 +7,14 @@ def convert(value: float, fmt: str) -> float:
     """
     if not isinstance(value, (int, float)):
         raise TypeError
-    if fmt.lower() not in ['cm', 'in']:
+    if fmt.lower() not in ["cm", "in"]:
         raise ValueError
-    if fmt.lower() == 'cm':
+    if fmt.lower() == "cm":
         convert = value * 2.54
-    if fmt.lower() == 'in':
+    if fmt.lower() == "in":
         convert = value / 2.54
     return round(convert, 4)
+
 
 # Pybites solution
 

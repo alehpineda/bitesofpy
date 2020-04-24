@@ -310,22 +310,35 @@ deps =
 ini_files = (cookiecutter, django, oeuvre, pyramid)
 
 
-@pytest.mark.parametrize("ini_file, num_sections, envs, base_pys", [
-    (cookiecutter, 4,
-     ['flake8', 'py34', 'py35', 'py36', 'pypy', 'py27'],
-     []),
-    (django, 7,
-     ['docs', 'flake8', 'isort', 'py3'],
-     ['python3']),
-    (pyramid, 8,
-     ['coverage', 'docs', 'lint', 'py34', 'py35', 'py36', 'py36-cover',
-      'py37', 'pypy3'],
-     ['python3.5', 'python3.6']),
-    (oeuvre, 14,
-     ['docs', 'flake8', 'linters', 'py27', 'py33', 'py34',
-      'py35', 'py36'],
-     ['python3']),
-])
+@pytest.mark.parametrize(
+    "ini_file, num_sections, envs, base_pys",
+    [
+        (cookiecutter, 4, ["flake8", "py34", "py35", "py36", "pypy", "py27"], []),
+        (django, 7, ["docs", "flake8", "isort", "py3"], ["python3"]),
+        (
+            pyramid,
+            8,
+            [
+                "coverage",
+                "docs",
+                "lint",
+                "py34",
+                "py35",
+                "py36",
+                "py36-cover",
+                "py37",
+                "pypy3",
+            ],
+            ["python3.5", "python3.6"],
+        ),
+        (
+            oeuvre,
+            14,
+            ["docs", "flake8", "linters", "py27", "py33", "py34", "py35", "py36"],
+            ["python3"],
+        ),
+    ],
+)
 def test_tox_ini_parser(ini_file, num_sections, envs, base_pys, tmp_path):
     f = tmp_path / "some_file.txt"
     f.write_bytes(ini_file.encode())  # https://bugs.python.org/issue17271

@@ -1,6 +1,6 @@
 from random import choice
 
-COLORS = 'red blue green yellow brown purple'.split()
+COLORS = "red blue green yellow brown purple".split()
 
 
 class EggCreator:
@@ -16,6 +16,6 @@ class EggCreator:
     def __next__(self):
         self.num += 1
         if self.num > self.limit:
-            raise StopIteration('Limit exceeded')
+            raise StopIteration("Limit exceeded")
         else:
-            return f'{choice(COLORS)} egg'
+            return f"{choice(COLORS)} egg"

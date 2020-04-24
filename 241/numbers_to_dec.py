@@ -18,4 +18,4 @@ def list_to_decimal(nums: List[int]) -> int:
         elif not num in range(0, 10):
             raise ValueError
 
-    return int(''.join(map(str, nums)))
+    return int("".join(map(str, nums)))

@@ -2,7 +2,7 @@ from zoo import Animal
 
 
 def test_zoo_5_animals():
-    for animal in 'dog cat fish lion mouse'.split():
+    for animal in "dog cat fish lion mouse".split():
         Animal(animal)
     zoo = Animal.zoo()
     assert "10001. Dog" in zoo
@@ -13,7 +13,7 @@ def test_zoo_5_animals():
 
 
 def test_animal_instance_str():
-    horse = Animal('horse')
+    horse = Animal("horse")
     assert str(horse) == "10006. Horse"
-    horse = Animal('monkey')
+    horse = Animal("monkey")
     assert str(horse) == "10007. Monkey"

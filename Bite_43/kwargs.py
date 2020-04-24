@@ -9,5 +9,6 @@ The point is to limit the interface of this function and you'll see
 Python makes it very easy ... have fun!
 """
 
-def get_profile(*, name = 'julian', profession = 'programmer') -> str:
-    return f'{name} is a {profession}'
+
+def get_profile(*, name="julian", profession="programmer") -> str:
+    return f"{name} is a {profession}"

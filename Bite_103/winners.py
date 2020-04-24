@@ -19,6 +19,6 @@ def print_game_stats(games_won=games_won):
     """
     for key, value in games_won.items():
         if value == 1:
-            print(f'{key} has won {value} game')
+            print(f"{key} has won {value} game")
         else:
-            print(f'{key} has won {value} games')
+            print(f"{key} has won {value} games")

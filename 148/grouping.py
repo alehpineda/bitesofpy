@@ -3,18 +3,30 @@ from operator import itemgetter
 
 cars = [
     # need mock data? -> https://www.mockaroo.com == awesome
-    ('Mercedes-Benz', '300D'), ('Mercedes-Benz', '600SEL'),
-    ('Toyota', 'Avalon'), ('Ford', 'Bronco'),
-    ('Chevrolet', 'Cavalier'), ('Chevrolet', 'Corvette'),
-    ('Mercedes-Benz', 'E-Class'), ('Hyundai', 'Elantra'),
-    ('Volkswagen', 'GTI'), ('Toyota', 'Highlander'),
-    ('Chevrolet', 'Impala'), ('Nissan', 'Maxima'),
-    ('Ford', 'Mustang'), ('Kia', 'Optima'),
-    ('Volkswagen', 'Passat'), ('Nissan', 'Pathfinder'),
-    ('Volkswagen', 'Routan'), ('Hyundai', 'Sonata'),
-    ('Kia', 'Sorento'), ('Kia', 'Sportage'),
-    ('Ford', 'Taurus'), ('Nissan', 'Titan'),
-    ('Toyota', 'Tundra'), ('Hyundai', 'Veracruz'),
+    ("Mercedes-Benz", "300D"),
+    ("Mercedes-Benz", "600SEL"),
+    ("Toyota", "Avalon"),
+    ("Ford", "Bronco"),
+    ("Chevrolet", "Cavalier"),
+    ("Chevrolet", "Corvette"),
+    ("Mercedes-Benz", "E-Class"),
+    ("Hyundai", "Elantra"),
+    ("Volkswagen", "GTI"),
+    ("Toyota", "Highlander"),
+    ("Chevrolet", "Impala"),
+    ("Nissan", "Maxima"),
+    ("Ford", "Mustang"),
+    ("Kia", "Optima"),
+    ("Volkswagen", "Passat"),
+    ("Nissan", "Pathfinder"),
+    ("Volkswagen", "Routan"),
+    ("Hyundai", "Sonata"),
+    ("Kia", "Sorento"),
+    ("Kia", "Sportage"),
+    ("Ford", "Taurus"),
+    ("Nissan", "Titan"),
+    ("Toyota", "Tundra"),
+    ("Hyundai", "Veracruz"),
 ]
 
 
@@ -32,5 +44,5 @@ def group_cars_by_manufacturer(cars):
     for manufacturer, model in groupby(cars, key=itemgetter(0)):
         print(manufacturer.upper())
         for car in model:
-            print(f'- {car[1]}')
-        print('')
+            print(f"- {car[1]}")
+        print("")

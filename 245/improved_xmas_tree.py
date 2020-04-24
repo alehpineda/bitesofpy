@@ -11,7 +11,7 @@ def generate_improved_xmas_tree(rows=10):
     max_leafs = rows * 2
     xmas.append(STAR.center(max_leafs))
 
-    for row in range(1, max_leafs+1, 2):
+    for row in range(1, max_leafs + 1, 2):
         leaf_row = LEAF * row
         xmas.append(leaf_row.center(max_leafs))
 
@@ -21,7 +21,7 @@ def generate_improved_xmas_tree(rows=10):
         trunk_row = TRUNK * trunk_width
         xmas.append(trunk_row.center(max_leafs))
 
-    return '\n'.join(xmas)
+    return "\n".join(xmas)
 
 
 if __name__ == "__main__":

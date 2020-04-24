@@ -15,31 +15,31 @@ def bites():
 
 
 def test_type_annotations():
-    assert Bite.__annotations__ == {'number': int, 'title': str, 'level': str}
+    assert Bite.__annotations__ == {"number": int, "title": str, "level": str}
 
 
 def test_getting_str_for_free(bites):
-    expected = Bite(number=1, title='Sum of numbers', level='Beginner')
+    expected = Bite(number=1, title="Sum of numbers", level="Beginner")
     assert bites[0] == expected
 
 
 def test_default_level_arg_first_bite(bites):
-    assert bites[0].level == 'Beginner'
+    assert bites[0].level == "Beginner"
 
 
 def test_attribute_access_second_bite(bites):
     assert bites[1].number == 2
     # title should get capitalized (use the __post_init__ method)
-    assert bites[1].title == 'A second bite'
-    assert bites[1].level == 'Intermediate'
+    assert bites[1].title == "A second bite"
+    assert bites[1].level == "Intermediate"
 
 
 def test_my_data_class_is_mutable(bites):
     b3 = bites[-1]
-    assert b3.level == 'Advanced'
+    assert b3.level == "Advanced"
     # named tuples are immutable so would not allow this:
-    b3 = replace(b3, level='super hard')
-    assert b3.level == 'super hard'
+    b3 = replace(b3, level="super hard")
+    assert b3.level == "super hard"
 
 
 def test_can_order_bites(bites):
@@ -61,4 +61,4 @@ def test_data_class_can_only_be_unpacked_when_casted_to_tuple(bites):
     # but this works:
     number, title, level = astuple(bites[0])
     assert number == 1
-    assert level == 'Beginner'
+    assert level == "Beginner"

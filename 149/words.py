@@ -5,7 +5,7 @@ def sort_words_case_insensitively(words):
     """
     word = sorted([word for word in words if word[0].isalpha()], key=str.lower)
     number = sorted([number for number in words if number[0].isdigit()], key=str.lower)
-    return word+number
+    return word + number
 
 
 # Pybites solution

@@ -1,14 +1,15 @@
 import operator
 
 CALCULATIONS = {
-   '+': operator.add,
-   '-': operator.sub,
-   '*': operator.mul,
-   '/': operator.truediv
+    "+": operator.add,
+    "-": operator.sub,
+    "*": operator.mul,
+    "/": operator.truediv,
 }
 
+
 def simple_calculator(calculation):
-   """Receives 'calculation' and returns the calculated result,
+    """Receives 'calculation' and returns the calculated result,
 
       Examples - input -> output:
       '2 * 3' -> 6
@@ -21,11 +22,10 @@ def simple_calculator(calculation):
       If bad data is passed in, raise a ValueError.
    """
 
-   try:
-      num1 , sign, num2 = calculation.split()
-      return CALCULATIONS[sign](int(num1), int(num2))
-   
+    try:
+        num1, sign, num2 = calculation.split()
+        return CALCULATIONS[sign](int(num1), int(num2))
 
-   except (ValueError,KeyError, ZeroDivisionError) as error:
-      print(error)
-      raise ValueError
+    except (ValueError, KeyError, ZeroDivisionError) as error:
+        print(error)
+        raise ValueError

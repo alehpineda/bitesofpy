@@ -1,5 +1,6 @@
 from typing import List
 
+
 def sum_numbers(numbers: List[int]) -> int:
     """Sums numbers
     

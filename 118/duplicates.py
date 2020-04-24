@@ -1,7 +1,8 @@
 from collections import Counter
 
+
 def get_duplicate_indices(words):
-   """Given a list of words, loop through the words and check for each
+    """Given a list of words, loop through the words and check for each
       word if it occurs more than once.
       If so return the index of its first ocurrence.
       For example in the following list 'is' and 'it'
@@ -11,12 +12,13 @@ def get_duplicate_indices(words):
       Make sure the returning list is unique and sorted in ascending order.
       count, list comprehension, set
    """
-   return sorted([words.index(word) 
-                  for word, count in Counter(words).most_common() 
-                  if count > 1])
+    return sorted(
+        [words.index(word) for word, count in Counter(words).most_common() if count > 1]
+    )
 
 
 # Pybites solution
+
 
 def get_duplicate_indices1(words):
     """Given a list of words, loop through the words and check for each

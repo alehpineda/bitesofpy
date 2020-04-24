@@ -1,4 +1,4 @@
-THUMBS_UP, THUMBS_DOWN = '👍', '👎'
+THUMBS_UP, THUMBS_DOWN = "👍", "👎"
 
 
 class Thumbs:
@@ -7,7 +7,7 @@ class Thumbs:
         count = abs(count)
 
         if count == 0:
-            raise ValueError('Specify a number')
+            raise ValueError("Specify a number")
 
         return f"{emoji} ({count}x)" if count > 3 else emoji * count
 

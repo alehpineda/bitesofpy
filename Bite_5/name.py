@@ -13,10 +13,21 @@ With some handy Python builtins you can write this in
 a pretty concise way. Get it sorted :)
 """
 
-NAMES = ['arnold schwarzenegger', 'alec baldwin', 'bob belderbos',
-         'julian sequeira', 'sandra bullock', 'keanu reeves',
-         'julbob pybites', 'bob belderbos', 'julian sequeira',
-         'al pacino', 'brad pitt', 'matt damon', 'brad pitt']
+NAMES = [
+    "arnold schwarzenegger",
+    "alec baldwin",
+    "bob belderbos",
+    "julian sequeira",
+    "sandra bullock",
+    "keanu reeves",
+    "julbob pybites",
+    "bob belderbos",
+    "julian sequeira",
+    "al pacino",
+    "brad pitt",
+    "matt damon",
+    "brad pitt",
+]
 
 
 def dedup_and_title_case_names(names):
@@ -36,9 +47,7 @@ def sort_by_surname_desc(names):
     # Sorted has a key parameter that can be modified
     # sorted by int, len, reverse it, or use a lambda
     # sorted return a copy of the list
-    return sorted(names,
-        reverse = True, 
-        key = lambda x: x.split()[-1])
+    return sorted(names, reverse=True, key=lambda x: x.split()[-1])
 
 
 def shortest_first_name(names):
@@ -46,7 +55,7 @@ def shortest_first_name(names):
        You can assume there is only one shortest name.
     """
     names = dedup_and_title_case_names(names)
-    # List comprehension 
+    # List comprehension
     names = [name.split()[0] for name in names]
     # min and max also have a key parameter
     return min(names, key=len)

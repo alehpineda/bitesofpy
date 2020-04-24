@@ -1,20 +1,20 @@
 # see __mro__ output in Bite description
 
 
-class Person():
+class Person:
     def __str__(self):
         return "I am a person"
 
 
 class Father(Person):
     def __str__(self):
-        return super().__str__() + ' and cool daddy'
-        #return  "I am a person and cool daddy"
+        return super().__str__() + " and cool daddy"
+        # return  "I am a person and cool daddy"
 
 
 class Mother(Person):
     def __str__(self):
-        return super().__str__() + ' and awesome mom'
+        return super().__str__() + " and awesome mom"
 
 
 class Child(Father, Mother):

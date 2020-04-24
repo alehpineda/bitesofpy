@@ -1,5 +1,6 @@
 from itertools import count
 
+
 class Animal:
     # class variables shared by all instances
     _zoo = {}
@@ -8,17 +9,15 @@ class Animal:
     def __init__(self, name):
         self.name = name.title()
         self._id = next(self._seq)
-        self._zoo.update({self._id:self.name})
-
+        self._zoo.update({self._id: self.name})
 
     def __str__(self):
         return f"{self._id}. {self.name}"
 
-
     @classmethod
     def zoo(cls):
         # instead of self, call cls
-        return '\n'.join([f"{_id}. {name}" for _id, name in cls._zoo.items()])
+        return "\n".join([f"{_id}. {name}" for _id, name in cls._zoo.items()])
 
 
 # Pybites solution
@@ -34,8 +33,8 @@ class Animal1:
         self._zoo.append(self)
 
     def __str__(self):
-        return f'{self.id}. {self.name}'
+        return f"{self.id}. {self.name}"
 
     @classmethod
     def zoo(cls):
-        return '\n'.join([str(animal) for animal in cls._zoo])
+        return "\n".join([str(animal) for animal in cls._zoo])

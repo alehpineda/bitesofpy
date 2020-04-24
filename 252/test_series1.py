@@ -21,9 +21,7 @@ def alpha_series():
     return pd.Series(dictionary)
 
 
-@pytest.mark.parametrize("arg, expected", [
-    (0, 0.000), (500, 0.500), (1000, 1.000)
-])
+@pytest.mark.parametrize("arg, expected", [(0, 0.000), (500, 0.500), (1000, 1.000)])
 def test_return_at_index(float_series, arg, expected):
     assert se.return_at_index(float_series, arg) == expected
 
@@ -47,17 +45,13 @@ def test_get_slice_inclusive(float_series):
     assert slce[25] == 0.025
 
 
-@pytest.mark.parametrize("arg, expected", [
-    (0, 0.000), (5, 0.005), (9, 0.009)
-])
+@pytest.mark.parametrize("arg, expected", [(0, 0.000), (5, 0.005), (9, 0.009)])
 def test_return_head(float_series, arg, expected):
     assert se.return_head(float_series, 10)[arg] == expected
     assert ".head" in inspect.getsource(se.return_head)
 
 
-@pytest.mark.parametrize("arg, expected", [
-    (991, 0.991), (995, 0.995), (1000, 1.000)
-])
+@pytest.mark.parametrize("arg, expected", [(991, 0.991), (995, 0.995), (1000, 1.000)])
 def test_return_tail(float_series, arg, expected):
     assert se.return_tail(float_series, 10)[arg] == expected
     assert ".tail" in inspect.getsource(se.return_tail)

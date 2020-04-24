@@ -11,9 +11,8 @@ from tempfile import gettempdir
 
 # PREWORK (don't modify): import colors, save to temp file and import
 TMP = gettempdir()
-color_values_module = os.path.join(TMP, 'color_values.py')
-urllib.request.urlretrieve('https://bit.ly/2MSuu4z',
-                           color_values_module)
+color_values_module = os.path.join(TMP, "color_values.py")
+urllib.request.urlretrieve("https://bit.ly/2MSuu4z", color_values_module)
 sys.path.append(TMP)
 
 # should be importable now
@@ -37,22 +36,23 @@ class Color:
         try:
             if len(hex) < 7:
                 raise ValueError(error_message)
-            hex = hex.lstrip('#')
+            hex = hex.lstrip("#")
             hlen = len(hex)
-            return tuple(int(hex[i:i+hlen//3], 16) for i in range(0, hlen, hlen//3))            
+            return tuple(
+                int(hex[i : i + hlen // 3], 16) for i in range(0, hlen, hlen // 3)
+            )
         except ValueError:
             raise ValueError(error_message)
-
 
     @classmethod
     def rgb2hex(cls, rgb):
         """Class method that converts an rgb value into a hex one"""
         error_message = f"{rgb} is not a valid RGB value!"
         try:
-            r,g,b = rgb
+            r, g, b = rgb
             if not (0 <= r <= 255 and 0 <= g <= 255 and 0 <= b <= 255):
                 raise ValueError(error_message)
-            return '#{:02x}{:02x}{:02x}'.format(r, g, b)
+            return "#{:02x}{:02x}{:02x}".format(r, g, b)
         except ValueError:
             raise ValueError(error_message)
 
@@ -60,16 +60,16 @@ class Color:
         """Returns the repl of the object"""
         return f"Color('{self.color}')"
 
-
     def __str__(self):
         """Returns the string value of the color object"""
-        return f"{self.rgb}" if self.rgb else 'Unknown'
+        return f"{self.rgb}" if self.rgb else "Unknown"
 
 
 # Pybites solution
 
 """Color class"""
 from string import hexdigits
+
 
 class Color1:
     """Color class.
@@ -93,7 +93,7 @@ class Color1:
         if not len(hex_value) == 7 or not hex_value.startswith("#"):
             raise ValueError(error_message)
 
-        return tuple(int(hex_value[i:i + 2], 16) for i in (1, 3, 5))
+        return tuple(int(hex_value[i : i + 2], 16) for i in (1, 3, 5))
 
     @classmethod
     def rgb2hex(cls, rgb_value):

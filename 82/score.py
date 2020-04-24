@@ -1,6 +1,6 @@
 from enum import Enum
 
-THUMBS_UP = '👍'  # in case you go f-string ...
+THUMBS_UP = "👍"  # in case you go f-string ...
 
 
 class Score(Enum):
@@ -14,4 +14,4 @@ class Score(Enum):
 
     @classmethod
     def average(cls):
-        return sum(s.value for s in cls)/len(cls)
+        return sum(s.value for s in cls) / len(cls)

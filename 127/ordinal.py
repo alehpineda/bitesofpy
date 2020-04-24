@@ -15,17 +15,17 @@ def get_ordinal_suffix(number):
     number = str(number)
 
     # create a dictionary with keys 1,2,3 and values st, nd, rd
-    f_123 = dict(zip('1 2 3'.split(), 'st nd rd'.split()))
+    f_123 = dict(zip("1 2 3".split(), "st nd rd".split()))
 
     # save the suffix
     # use get from dict to check if the number ends with 1,2, or 3 if not
     # save 'th'
-    suffix = f_123.get(number[-1]) or 'th'
+    suffix = f_123.get(number[-1]) or "th"
 
     # teen numbers
     # if the number is 10 or more and the second last is 1
-    if len(number) > 1 and number[-2] == '1':
-      suffix = 'th'
-    
+    if len(number) > 1 and number[-2] == "1":
+        suffix = "th"
+
     # return f-string with number and suffix
-    return f'{number}{suffix}'
+    return f"{number}{suffix}"

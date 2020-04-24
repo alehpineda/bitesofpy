@@ -2,7 +2,7 @@ from itertools import zip_longest
 
 
 def group(iterable, n):
-  """Splits an iterable set into groups of size n and a group
+    """Splits an iterable set into groups of size n and a group
       of the remaining elements if needed.
 
       Args:
@@ -14,8 +14,7 @@ def group(iterable, n):
         list: The list of groups of size n,
               where each group is a list of n elements.
   """
-  return [list(filter(None, tup))
-          for tup in zip_longest(*[iter(iterable)]*n)]
+    return [list(filter(None, tup)) for tup in zip_longest(*[iter(iterable)] * n)]
 
 
 # Pybites solution
@@ -50,8 +49,8 @@ def group1(iterable, n):
     return ret
 
 
-if __name__ == '__main__':
-  iterable = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-  n = 3
-  ret = group(iterable, n)
-  print(ret)
+if __name__ == "__main__":
+    iterable = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    n = 3
+    ret = group(iterable, n)
+    print(ret)

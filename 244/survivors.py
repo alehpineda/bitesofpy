@@ -77,20 +77,24 @@ def filter_killed_mutants(mutpy_output: list = None) -> list:
     pattern_03 = re.compile(r"\[\d.\d+\s+s\]\s+survived")
 
     # search for the patterns in the list
-    mutants = ((index, line) for index, line in enumerate(mutpy_output)
-               if pattern_01.search(line) or pattern_02.search(line)
-               or pattern_03.search(line))
+    mutants = (
+        (index, line)
+        for index, line in enumerate(mutpy_output)
+        if pattern_01.search(line) or pattern_02.search(line) or pattern_03.search(line)
+    )
 
     # create start and ending of the lines
     mutants = zip(mutants, mutants)
 
     # Extract the indices(start, ending) of killed and incompetent
-    indices = ((mutant[0][0]+1, mutant[1][0]) for mutant in mutants
-               if 'survived' not in mutant[1][1])
+    indices = (
+        (mutant[0][0] + 1, mutant[1][0])
+        for mutant in mutants
+        if "survived" not in mutant[1][1]
+    )
 
     # Expand ranges of the index
     indices = [x for index1, index2 in indices for x in range(index1, index2)]
 
     # return filtered lines
-    return (line for index, line in enumerate(mutpy_output)
-            if index not in indices)
+    return (line for index, line in enumerate(mutpy_output) if index not in indices)

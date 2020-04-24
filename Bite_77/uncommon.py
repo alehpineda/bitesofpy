@@ -8,6 +8,7 @@ So given [A B C] and [B C D] it should return 2 because only A and D are differe
 You can loop through both sequences but maybe there is a more concise way to do it?
 """
 
+
 def uncommon_cities(my_cities, other_cities):
     """Compare my_cities and other_cities and return the number of different
        cities between the two"""

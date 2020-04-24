@@ -7,8 +7,8 @@ import re
 
 # Code prep
 TMP = gettempdir()
-DICTIONARY = os.path.join(TMP, 'dictionary_m_words.txt')
-urllib.request.urlretrieve('http://bit.ly/2Cbj6zn', DICTIONARY)
+DICTIONARY = os.path.join(TMP, "dictionary_m_words.txt")
+urllib.request.urlretrieve("http://bit.ly/2Cbj6zn", DICTIONARY)
 
 
 def load_dictionary():
@@ -23,7 +23,7 @@ def is_palindrome(word):
        It should work for phrases too so strip all but alphanumeric chars.
        So "No 'x' in 'Nixon'" should pass (see tests for more)"""
     # [^0-9a-zA-Z]+ equals \W+
-    word = re.sub('[^0-9a-zA-Z]+', '', word.lower())
+    word = re.sub("[^0-9a-zA-Z]+", "", word.lower())
     return word == word[::-1]
 
 
@@ -33,7 +33,7 @@ def get_longest_palindrome(words=None):
        to populate the words list"""
     if not words:
         words = load_dictionary()
-    
+
     palindrome = (word for word in words if is_palindrome(word))
-    
+
     return max(palindrome, key=len)

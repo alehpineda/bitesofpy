@@ -4,16 +4,15 @@ from urllib.request import urlretrieve
 from tempfile import gettempdir
 
 TMP = gettempdir()
-DICTIONARY = os.path.join(TMP, 'dictionary.txt')
+DICTIONARY = os.path.join(TMP, "dictionary.txt")
 if not os.path.isfile(DICTIONARY):
     urlretrieve(
-        'https://bites-data.s3.us-east-2.amazonaws.com/dictionary.txt',
-        DICTIONARY
+        "https://bites-data.s3.us-east-2.amazonaws.com/dictionary.txt", DICTIONARY
     )
 
 
 def load_words():
-    'return dict of words in DICTIONARY'
+    "return dict of words in DICTIONARY"
     with open(DICTIONARY) as f:
         return {word.strip().lower() for word in f.readlines()}
 
@@ -35,5 +34,6 @@ def suggest_word1(misspelled_word: str, words: set = None) -> str:
         words = load_words()
 
     # you code
-    return max(words, key=lambda word:
-               SequenceMatcher(None, misspelled_word, word).ratio())
+    return max(
+        words, key=lambda word: SequenceMatcher(None, misspelled_word, word).ratio()
+    )

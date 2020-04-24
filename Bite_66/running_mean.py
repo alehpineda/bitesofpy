@@ -13,9 +13,13 @@ Bonus: use a function of itertools + make it a generator, but this is not requir
 
 from itertools import accumulate
 
+
 def running_mean(sequence):
     """Calculate the running mean of the sequence passed in,
        returns a sequence of same length with the averages.
        You can assume all items in sequence are numeric."""
-    
-    return (round(total / index, 2) for index, total in enumerate(accumulate(sequence), start = 1))
+
+    return (
+        round(total / index, 2)
+        for index, total in enumerate(accumulate(sequence), start=1)
+    )

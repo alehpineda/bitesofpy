@@ -14,7 +14,7 @@ def test_valid_args():
 
 def test_invalid_type_str():
     with pytest.raises(TypeError):
-        sum_numbers(1, 'string', 3)
+        sum_numbers(1, "string", 3)
 
 
 def test_invalid_type_float():

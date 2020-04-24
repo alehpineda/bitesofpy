@@ -18,12 +18,14 @@ the TESTS tab.
 
 from collections import namedtuple
 
-BeltStats = namedtuple('BeltStats', 'score ninjas')
+BeltStats = namedtuple("BeltStats", "score ninjas")
 
-ninja_belts = {'yellow': BeltStats(50, 11),
-               'orange': BeltStats(100, 7),
-               'green': BeltStats(175, 1),
-               'blue': BeltStats(250, 5)}
+ninja_belts = {
+    "yellow": BeltStats(50, 11),
+    "orange": BeltStats(100, 7),
+    "green": BeltStats(175, 1),
+    "blue": BeltStats(250, 5),
+}
 
 
 def get_total_points(belts=ninja_belts):
@@ -43,5 +45,5 @@ def get_total_points(belts=ninja_belts):
     total = 0
     for _, value in belts.items():
         total += value.ninjas * value.score
-    
+
     return total

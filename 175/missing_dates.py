@@ -31,7 +31,7 @@ def get_missing_dates1(dates):
     """
     start = min(dates)
     count = max(dates).day - start.day
-    date_range = [d.date() for d in
-                  rrule.rrule(rrule.DAILY, count=count,
-                              dtstart=start)]
+    date_range = [
+        d.date() for d in rrule.rrule(rrule.DAILY, count=count, dtstart=start)
+    ]
     return set(date_range) - set(dates)

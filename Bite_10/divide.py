@@ -12,9 +12,10 @@ As always see the tests written in pytest to see what your code need
 to pass. Have fun!
 """
 
+
 def positive_divide(numerator, denominator):
     try:
-        div = numerator/denominator
+        div = numerator / denominator
     except ZeroDivisionError:
         return 0
     except TypeError:
@@ -24,12 +25,13 @@ def positive_divide(numerator, denominator):
             raise ValueError
         return div
 
+
 # pybites solution
 def positive_divide1(numerator, denominator):
     try:
-        result = numerator/denominator
+        result = numerator / denominator
         if result < 0:
-            raise ValueError('Cannot be negative')
+            raise ValueError("Cannot be negative")
         else:
             return result
     except ZeroDivisionError:

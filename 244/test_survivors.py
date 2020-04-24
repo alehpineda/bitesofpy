@@ -162,30 +162,28 @@ EXPECTED_OUTPUT_WITH_GAP = """
 """
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope="module")
 def actual():
     return [line.rstrip() for line in filter_killed_mutants()]
 
 
-@pytest.fixture(scope='module')
+@pytest.fixture(scope="module")
 def actual2():
     """Same output but filter out test 10 (killed) and 11 (survived),
        to avoid the hardcoded output gets returned from function
     """
     mutpy_output = _get_data()
-    test10 = mutpy_output.index('   - [#  10] CRP account:')
-    test12 = mutpy_output.index('   - [#  12] CRP account:')
+    test10 = mutpy_output.index("   - [#  10] CRP account:")
+    test12 = mutpy_output.index("   - [#  12] CRP account:")
     output = mutpy_output[:test10] + mutpy_output[test12:]
     return [line.rstrip() for line in filter_killed_mutants(output)]
 
 
 def test_output_matches(actual):
-    expected = [line.rstrip() for line in
-                EXPECTED_OUTPUT.strip().splitlines()]
+    expected = [line.rstrip() for line in EXPECTED_OUTPUT.strip().splitlines()]
     assert actual == expected
 
 
 def test_different_output(actual2):
-    expected = [line.rstrip() for line in
-                EXPECTED_OUTPUT_WITH_GAP.strip().splitlines()]
+    expected = [line.rstrip() for line in EXPECTED_OUTPUT_WITH_GAP.strip().splitlines()]
     assert actual2 == expected

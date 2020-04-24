@@ -46,21 +46,63 @@ artagnon:x:1005:1005:Ramkumar R,,,,Git GSOC:/home/artagnon:/bin/bash
 """
 
 
-@pytest.mark.parametrize("input_, expected", [
-    (pw1, {'root': 'root', 'daemon': 'daemon', 'bin': 'bin',
-           'sys': 'sys', 'sync': 'sync', 'games': 'games',
-           'man': 'man', 'lp': 'lp'}),
-    (pw2, {'mail': 'mail', 'news': 'news', 'uucp': 'uucp',
-           'proxy': 'proxy', 'www-data': 'www-data',
-           'backup': 'backup', 'list': 'Mailing List Manager'}),
-    (pw3, {'irc': 'ircd', 'gnats': 'Gnats Bug-Reporting System (admin)',
-           'nobody': 'nobody', 'libuuid': 'unknown', 'Debian-exim': 'unknown',
-           'statd': 'unknown', 'sshd': 'unknown', 'ftp': 'unknown',
-           'messagebus': 'unknown'}),
-    (pw4, {'mysql': 'MySQL Server', 'avar': 'unknown', 'chad': 'unknown',
-           'git-svn-mirror': 'Git mirror', 'gerrit2': 'Gerrit User',
-           'avahi': 'Avahi mDNS daemon', 'postfix': 'unknown',
-           'ssh-rsa': 'unknown', 'artagnon': 'Ramkumar R Git GSOC'}),
-])
+@pytest.mark.parametrize(
+    "input_, expected",
+    [
+        (
+            pw1,
+            {
+                "root": "root",
+                "daemon": "daemon",
+                "bin": "bin",
+                "sys": "sys",
+                "sync": "sync",
+                "games": "games",
+                "man": "man",
+                "lp": "lp",
+            },
+        ),
+        (
+            pw2,
+            {
+                "mail": "mail",
+                "news": "news",
+                "uucp": "uucp",
+                "proxy": "proxy",
+                "www-data": "www-data",
+                "backup": "backup",
+                "list": "Mailing List Manager",
+            },
+        ),
+        (
+            pw3,
+            {
+                "irc": "ircd",
+                "gnats": "Gnats Bug-Reporting System (admin)",
+                "nobody": "nobody",
+                "libuuid": "unknown",
+                "Debian-exim": "unknown",
+                "statd": "unknown",
+                "sshd": "unknown",
+                "ftp": "unknown",
+                "messagebus": "unknown",
+            },
+        ),
+        (
+            pw4,
+            {
+                "mysql": "MySQL Server",
+                "avar": "unknown",
+                "chad": "unknown",
+                "git-svn-mirror": "Git mirror",
+                "gerrit2": "Gerrit User",
+                "avahi": "Avahi mDNS daemon",
+                "postfix": "unknown",
+                "ssh-rsa": "unknown",
+                "artagnon": "Ramkumar R Git GSOC",
+            },
+        ),
+    ],
+)
 def test_users(input_, expected):
     assert get_users(input_) == expected

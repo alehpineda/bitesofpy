@@ -20,8 +20,8 @@ Ideally you use only one for loop, but that is not a requirement.
 Good luck and keep calm and code in Python!
 """
 
-names = 'Julian Bob PyBites Dante Martin Rodolfo'.split()
-countries = 'Australia Spain Global Argentina USA Mexico'.split()
+names = "Julian Bob PyBites Dante Martin Rodolfo".split()
+countries = "Australia Spain Global Argentina USA Mexico".split()
 
 
 def enumerate_names_countries():
@@ -33,6 +33,6 @@ def enumerate_names_countries():
        5. Martin     USA
        6. Rodolfo    Mexico"""
     c = 1
-    for i,j in zip(names, countries):
-        print("{}. ".format(c)+ i + ' '*(11 - len(i)) + j)
-        c+=1
+    for i, j in zip(names, countries):
+        print("{}. ".format(c) + i + " " * (11 - len(i)) + j)
+        c += 1

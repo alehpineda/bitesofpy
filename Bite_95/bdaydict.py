@@ -1,4 +1,4 @@
-MSG = 'Hey {}, there are more people with your birthday!'
+MSG = "Hey {}, there are more people with your birthday!"
 
 
 class BirthdayDict(dict):
@@ -14,9 +14,10 @@ class BirthdayDict(dict):
                 print(MSG.format(name))
         super().__setitem__(name, birthday)
 
+
 # Pybites solution
 
-MSG = 'Hey {}, there are more people with your birthday!'
+MSG = "Hey {}, there are more people with your birthday!"
 
 
 class BirthdayDict1(dict):
@@ -27,8 +28,9 @@ class BirthdayDict1(dict):
         self.update(*args, **kwargs)
 
     def __setitem__(self, name, birthday):
-        has_birthday = any(birthday.strftime('%d/%m') == dt.strftime('%d/%m')
-                           for dt in self.values())
+        has_birthday = any(
+            birthday.strftime("%d/%m") == dt.strftime("%d/%m") for dt in self.values()
+        )
 
         if has_birthday:
             print(MSG.format(name))

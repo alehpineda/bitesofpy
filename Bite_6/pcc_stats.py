@@ -16,17 +16,18 @@ from tempfile import gettempdir
 
 # prep
 TMP = gettempdir()
-tempfile = os.path.join(TMP, 'dirnames')
-urllib.request.urlretrieve('http://bit.ly/2ABUTjv', tempfile)
+tempfile = os.path.join(TMP, "dirnames")
+urllib.request.urlretrieve("http://bit.ly/2ABUTjv", tempfile)
 
-IGNORE = 'static templates data pybites bbelderbos hobojoe1848'.split()
+IGNORE = "static templates data pybites bbelderbos hobojoe1848".split()
 
 users, popular_challenges = Counter(), Counter()
 
-Stats = namedtuple('Stats', 'user challenge')
+Stats = namedtuple("Stats", "user challenge")
 
 
-# code
+#  code
+
 
 def gen_files():
     """Return a generator of dir names reading in tempfile
@@ -44,11 +45,10 @@ def gen_files():
     """
     with open(tempfile) as f:
         for line in f.read().splitlines():
-            if line.split(',')[1] == 'True':
-                if line.split(',')[0].split('/')[1] in IGNORE:
+            if line.split(",")[1] == "True":
+                if line.split(",")[0].split("/")[1] in IGNORE:
                     continue
-                yield (line.split(',')[0].split('/'))
-
+                yield (line.split(",")[0].split("/"))
 
 
 def diehard_pybites():
@@ -59,12 +59,14 @@ def diehard_pybites():
        Stats(user='clamytoe', challenge=('01', 7))
     """
     for challenge, user in gen_files():
-        users.update((user,challenge)) 
+        users.update((user, challenge))
         popular_challenges.update((challenge,))
 
     return Stats(users.most_common(1)[0][0], popular_challenges.most_common(1)[0])
 
+
 # code from pybites
+
 
 def gen_files1():
     """Return a generator of dir names reading in tempfile
@@ -81,9 +83,11 @@ def gen_files1():
        -> use last column to filter out directories (= True)
     """
     with open(tempfile) as f:
-        return (line.split(',')[0].lower()
-                for line in f.readlines()
-                if line.strip().endswith('True'))
+        return (
+            line.split(",")[0].lower()
+            for line in f.readlines()
+            if line.strip().endswith("True")
+        )
 
 
 def diehard_pybites1():
@@ -94,7 +98,7 @@ def diehard_pybites1():
        Stats(user='clamytoe', challenge=('01', 7))
     """
     for dir_ in gen_files():
-        ch, user = dir_.split('/')
+        ch, user = dir_.split("/")
 
         if user in IGNORE:
             continue

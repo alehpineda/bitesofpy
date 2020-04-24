@@ -29,14 +29,19 @@ See the TESTS tab for more details
 # My solution using regex
 from re import findall
 
+
 def get_index_different_char(chars):
-    alpha = findall(r"[a-zA-Z0-9]", ''.join(map(str, chars)))
-    non_alpha = findall(r"[^a-zA-Z0-9]", ''.join(map(str, chars)))
+    alpha = findall(r"[a-zA-Z0-9]", "".join(map(str, chars)))
+    non_alpha = findall(r"[^a-zA-Z0-9]", "".join(map(str, chars)))
 
     if len(non_alpha) < len(alpha):
         return chars.index(non_alpha[0])
     else:
-        return chars.index(int(alpha[0])) if alpha[0] in '1234567890' else chars.index(alpha[0])
+        return (
+            chars.index(int(alpha[0]))
+            if alpha[0] in "1234567890"
+            else chars.index(alpha[0])
+        )
 
 
 # Solution from pybites
@@ -54,7 +59,9 @@ def get_index_different_char_1(chars):
             no_matches.append(i)
     return matches[0] if len(matches) == 1 else no_matches[0]
 
-# Solution from pybites forum
+
+#  Solution from pybites forum
+
 
 def get_index_different_char_2(chars):
     # A list of 0,1's representing whether each char is alphanum or not

@@ -16,6 +16,8 @@ its result.
 If denominator is 0 though, Python throws another exception. 
 Figure out which one that is and catch it. In that case return 0.
 """
+
+
 def divide_numbers(numerator, denominator):
     """For this exercise you can assume numerator and denominator are of type
        int/str/float.
@@ -23,7 +25,7 @@ def divide_numbers(numerator, denominator):
        ValueError reraise it. Following do the division and return the result.
        However if denominator is 0 catch the corresponding exception Python
        throws (cannot divide by 0), and return 0"""
-    
+
     try:
         numerator = int(numerator)
         denominator = int(denominator)
@@ -33,6 +35,7 @@ def divide_numbers(numerator, denominator):
         return numerator / denominator
     except ZeroDivisionError:
         return 0
+
 
 # Check why this code did't work...
 #    if int(numerator) and int(denominator):

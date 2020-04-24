@@ -8,14 +8,16 @@ def timing(f):
     """A simple timer decorator to print the elapsed time of
        the execution of the function it wraps.
        Returns (timing, result) tuple"""
+
     @wraps(f)
     def wrapper(*args, **kwargs):
         start = perf_counter()
         result = f(*args, **kwargs)
         end = perf_counter()
         duration = end - start
-        print(f'Elapsed time {f.__name__}: {duration}')
+        print(f"Elapsed time {f.__name__}: {duration}")
         return duration, result
+
     return wrapper
 
 
@@ -44,7 +46,7 @@ def ordered_list_max_fast(sequence: List[int]) -> int:
 
 @timing
 def list_concat(sequence: List[str]) -> str:
-    bigstr = ''
+    bigstr = ""
     for i in sequence:
         bigstr += str(i)
     return bigstr
@@ -52,7 +54,7 @@ def list_concat(sequence: List[str]) -> str:
 
 @timing
 def list_concat_fast(sequence: List[str]) -> str:
-    return ''.join(sequence)
+    return "".join(sequence)
 
 
 @timing

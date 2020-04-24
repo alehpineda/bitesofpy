@@ -49,27 +49,30 @@ def check_bt(donor, recipient):
     recipient = _check_input(recipient)
     compatibility = _particular_antigen_comp(donor, recipient)
     return not any(antigen < 0 for antigen in compatibility)
-        
+
+
 # aux function to check for type
+
 
 def _check_input(blood_type):
     if isinstance(blood_type, Bloodtype):
         return blood_type.value
-    
+
     if isinstance(blood_type, str):
         if blood_type in blood_type_text.keys():
             return blood_type_text[blood_type].value
         else:
             raise ValueError
-    
+
     if isinstance(blood_type, int):
         if blood_type in range(8):
             return blood_type
         else:
             raise ValueError
-    
+
     else:
         raise TypeError
+
 
 # hint
 def _particular_antigen_comp(donor: int, recipient: int) -> tuple:

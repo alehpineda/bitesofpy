@@ -18,6 +18,6 @@ def group_names_by_country(data: str = data) -> defaultdict:
     countries = defaultdict(list)
 
     for line in data.splitlines()[1:]:
-        last_name, first_name, country_code = line.split(',')
-        countries[country_code].append(f'{first_name} {last_name}')
+        last_name, first_name, country_code = line.split(",")
+        countries[country_code].append(f"{first_name} {last_name}")
     return countries
