@@ -9,8 +9,7 @@ used_passwords = set("PassWord@1 PyBit$s9".split())
 def validate_password(password):
     """ Function to validate password """
 
-    punctuation_chars = "".join(PUNCTUATION_CHARS)
-    reg = fr"^(?=.*[a-z]{{2,}})(?=.*[A-Z])(?=.*\d)(?=.*[{punctuation_chars}])[A-Za-z\d{punctuation_chars}]{{6,12}}$"
+    reg = fr"^(?=(?:.*[0-9]){{1,}})(?=(?:.*[a-z]){{2,}})(?=(?:.*[A-Z]){{1,}})(?=(?:.*[{string.punctuation}]){{1,}})[A-Za-z\d{string.punctuation}]{{6,12}}$"
     pat = re.compile(reg)  # compiling regex
     mat = re.search(pat, password)  # searching regex
 
