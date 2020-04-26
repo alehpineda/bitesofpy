@@ -17,13 +17,21 @@ csv_classes = [
     "Sniffer",
     "StringIO",
 ]
+csv_classes_38 = [
+    "Dialect",
+    "DictReader",
+    "DictWriter",
+    "Error",
+    "Sniffer",
+    "StringIO",
+]
 random_classes = ["Random", "SystemRandom"]
 re_classes = ["Match", "Pattern", "RegexFlag", "Scanner"]
 string_classes = ["Formatter", "Template"]
 
 
 @pytest.mark.skipif(
-    sys.version_info > (3, 7),
+    sys.version_info > (3, 8),
     reason="In python 3.8, OrderedDict was moved out from csv",
 )
 @pytest.mark.parametrize(
@@ -36,5 +44,23 @@ string_classes = ["Formatter", "Template"]
     ],
 )
 def test_cls(mod, expected):
+    actual = get_classes(mod)
+    assert sorted(actual) == sorted(expected)
+
+
+@pytest.mark.skipif(
+    sys.version_info < (3, 8),
+    reason="In python 3.8, OrderedDict was moved out from csv",
+)
+@pytest.mark.parametrize(
+    "mod, expected",
+    [
+        (csv, csv_classes_38),
+        (random, random_classes),
+        (re, re_classes),
+        (string, string_classes),
+    ],
+)
+def test_cls_38(mod, expected):
     actual = get_classes(mod)
     assert sorted(actual) == sorted(expected)
