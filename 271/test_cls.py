@@ -2,6 +2,7 @@ import csv
 import random
 import re
 import string
+import sys
 
 import pytest
 
@@ -21,6 +22,10 @@ re_classes = ["Match", "Pattern", "RegexFlag", "Scanner"]
 string_classes = ["Formatter", "Template"]
 
 
+@pytest.mark.skipif(
+    sys.version_info == (3, 8),
+    reason="In python 3.8, OrderedDict was moved out from csv",
+)
 @pytest.mark.parametrize(
     "mod, expected",
     [
