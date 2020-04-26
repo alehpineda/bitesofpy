@@ -23,7 +23,7 @@ string_classes = ["Formatter", "Template"]
 
 
 @pytest.mark.skipif(
-    sys.version_info == (3, 8),
+    sys.version_info > (3, 7),
     reason="In python 3.8, OrderedDict was moved out from csv",
 )
 @pytest.mark.parametrize(
