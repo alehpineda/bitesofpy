@@ -1,0 +1,78 @@
+coverage:
+  all_nodes: 0
+  covered_nodes: 0
+mutation_score: 0.0
+mutations:
+- exception_traceback: null
+  killer: null
+  module: &id001 !!python/module:color ''
+  mutations:
+  - lineno: 5
+    operator: COI
+  number: 1
+  status: survived
+  tests_run: 0
+  time: 0.0009982585906982422
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 6
+    operator: CRP
+  number: 2
+  status: survived
+  tests_run: 0
+  time: 0.0
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 6
+    operator: CRP
+  number: 3
+  status: survived
+  tests_run: 0
+  time: 0.0
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 6
+    operator: CRP
+  number: 4
+  status: survived
+  tests_run: 0
+  time: 0.0010008811950683594
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 7
+    operator: CRP
+  number: 5
+  status: survived
+  tests_run: 0
+  time: 0.0
+- exception_traceback: null
+  killer: null
+  module: *id001
+  mutations:
+  - lineno: 7
+    operator: CRP
+  number: 6
+  status: survived
+  tests_run: 0
+  time: 0.0
+number_of_tests: 0
+targets:
+- color.py
+tests:
+- name: test_color
+  target: null
+  time: 0.0
+time_stats:
+  create_mutant_module: 0.0010263919830322266
+  create_target_ast: 0.0010051727294921875
+  mutate_module: 0.0320277214050293
+  run_tests_with_mutant: 0.004968404769897461
+total_time: 0.039029836654663086
