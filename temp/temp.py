@@ -1,4 +1,5 @@
 import requests
+from requests import HTTPError, Timeout
 
 
 def google_query(query):
@@ -13,7 +14,7 @@ def google_query(query):
         resp = requests.get(url, params=params, timeout=1)
         resp.raise_for_status()
         return resp.content
-    except requests.exceptions.HTTPError:
+    except HTTPError:
         return False
-    except requests.exceptions.Timeout:
+    except Timeout:
         return True
