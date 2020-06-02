@@ -49,12 +49,10 @@ class TestRequestsCall:
     def test_failed_query_http(self, mock_get):
         """test case where google is down"""
         resp = google_query("elephants")
-        mock_resp.raise_for_status.assert_called()
         assert resp is False
 
     @patch("temp.requests.get", side_effect=Timeout)
     def test_failed_query_tout(self, mock_get):
         """test case where google is down"""
         resp = google_query("elephants")
-        mock_resp.raise_for_status.assert_called()
         assert resp is True
