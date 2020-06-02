@@ -25,7 +25,7 @@ def test_gen_hex_colors(patch_sample, gen):
     assert next(gen) == "#FFFFFF"
 
 
-@patch("color.sample", return_value=[0, 0, 0])
+@patch("color_1.sample", return_value=[0, 0, 0])
 def test_gen_hex_color_patch(patch_sample, gen):
     assert next(gen) == "#000000"
     patch_sample.assert_called_with(range(0, 256), 3)
