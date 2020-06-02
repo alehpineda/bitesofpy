@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 import pytest
 
-import color
+import color_1 as color
 
 
 @pytest.fixture(scope="module")
