@@ -13,3 +13,10 @@ def common_words(sentence1: List[str], sentence2: List[str]) -> List[str]:
     set_1 = set(word.lower() for word in sentence1)
     set_2 = set(word.lower() for word in sentence2)
     return sorted(list(set_1.intersection(set_2)), key=len)
+
+
+def common_words_2(sentence1, sentence2) -> List[str]:
+    sentence1_set = set(map(str.lower, sentence1))
+    sentence2_set = set(map(str.lower, sentence2))
+    commons = sentence1_set & sentence2_set
+    return sorted(commons, key=len)
